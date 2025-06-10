@@ -139,8 +139,14 @@ static const struct HealLocation sHealLocations[NUM_HEAL_LOCATIONS - 1] = {
     [HEAL_LOCATION_TOWN_SPRAGHOLT - 1] = {
         .mapGroup = MAP_GROUP(MAP_TOWN_SPRAGHOLT),
         .mapNum = MAP_NUM(MAP_TOWN_SPRAGHOLT),
-        .x = 17,
-        .y = 9,
+        .x = 16,
+        .y = 16,
+    },
+    [HEAL_LOCATION_SPRAGHOLT_PLAYER_HOME - 1] = {
+        .mapGroup = MAP_GROUP(MAP_SPRAGHOLT_PLAYER_HOME),
+        .mapNum = MAP_NUM(MAP_SPRAGHOLT_PLAYER_HOME),
+        .x = 3,
+        .y = 5,
     },
 };
 

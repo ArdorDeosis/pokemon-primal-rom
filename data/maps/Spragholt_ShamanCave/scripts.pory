@@ -1,1 +1,20 @@
 mapscripts Spragholt_ShamanCave_MapScripts {}
+
+script Spragholt_ShamanCave_GetPlaceholderPokemon {
+    lockall
+    showmonpic(SPECIES_ONIX, 10, 3)
+    playmoncry(SPECIES_ONIX, CRY_MODE_NORMAL)
+    msgbox("Take ONIX?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        givemon(SPECIES_ONIX, 5)
+        if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            msgbox("You received ONIX!")
+            removeobject(LOCALID_PLACEHOLDER_STARTER_BALL)
+            playfanfare(MUS_OBTAIN_ITEM)
+        }
+    }
+    hidemonpic
+    waitmessage
+    releaseall
+    end
+}

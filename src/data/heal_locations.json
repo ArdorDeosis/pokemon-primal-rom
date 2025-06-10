@@ -135,8 +135,14 @@
     {
       "id": "HEAL_LOCATION_TOWN_SPRAGHOLT",
       "map": "MAP_TOWN_SPRAGHOLT",
-      "x": 17,
-      "y": 9
+      "x": 16,
+      "y": 16
+    },
+    {
+      "id": "HEAL_LOCATION_SPRAGHOLT_PLAYER_HOME",
+      "map": "MAP_SPRAGHOLT_PLAYER_HOME",
+      "x": 3,
+      "y": 5
     }
   ]
 }

@@ -490,7 +490,7 @@
     },
     {
       "id": "MAPSEC_ABANDONED_SHIP",
-      "name": "ABANDONED SHIP",
+      "name": "TEST MAP",
       "x": 6,
       "y": 14,
       "width": 1,
@@ -1702,6 +1702,18 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_SPRAGHOLT",
+      "name": "SPRAGHOLT",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_01",
+      "name": "ROUTE 1"
     }
   ]
 }

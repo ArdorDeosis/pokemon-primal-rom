@@ -3,7 +3,7 @@
   "name": "Route01",
   "layout": "LAYOUT_ROUTE01",
   "music": "MUS_RG_ROUTE1",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ROUTE_01",
   "requires_flash": false,
   "weather": "WEATHER_DYN_SOME_RAIN",
   "map_type": "MAP_TYPE_ROUTE",
@@ -24,16 +24,8 @@
       "direction": "left"
     }
   ],
-  "object_events": [
-
-  ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
 }
