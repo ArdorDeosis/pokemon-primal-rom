@@ -10,7 +10,7 @@ Town_Spragholt_EventScript_FireMan::
 # 6 "data/maps/Town_Spragholt/scripts.pory"
 	goto_if_set FLAG_TEMP_1, Town_Spragholt_EventScript_FireMan_2
 # 12 "data/maps/Town_Spragholt/scripts.pory"
-	msgbox Town_Spragholt_EventScript_FireMan_Text_2, MSGBOX_NPC
+	msgbox Town_Spragholt_EventScript_FireMan_Text_2
 Town_Spragholt_EventScript_FireMan_1:
 # 14 "data/maps/Town_Spragholt/scripts.pory"
 	release
@@ -18,11 +18,11 @@ Town_Spragholt_EventScript_FireMan_1:
 
 Town_Spragholt_EventScript_FireMan_2:
 # 7 "data/maps/Town_Spragholt/scripts.pory"
-	msgbox Town_Spragholt_EventScript_FireMan_Text_0, MSGBOX_NPC
+	msgbox Town_Spragholt_EventScript_FireMan_Text_0
 # 8 "data/maps/Town_Spragholt/scripts.pory"
 	multichoice 22, 8, MULTI_FAST_OR_CRISPY, TRUE
 # 9 "data/maps/Town_Spragholt/scripts.pory"
-	msgbox Town_Spragholt_EventScript_FireMan_Text_1, MSGBOX_NPC
+	msgbox Town_Spragholt_EventScript_FireMan_Text_1
 	goto Town_Spragholt_EventScript_FireMan_1
 
 
@@ -98,7 +98,7 @@ Town_Spragholt_Trigger_TryToLeaveWithoutPokemon::
 # 54 "data/maps/Town_Spragholt/scripts.pory"
 	lockall
 # 55 "data/maps/Town_Spragholt/scripts.pory"
-	msgbox Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Text_0, MSGBOX_SIGN
+	msgbox Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Text_0
 # 56 "data/maps/Town_Spragholt/scripts.pory"
 	waitmessage
 # 57 "data/maps/Town_Spragholt/scripts.pory"
