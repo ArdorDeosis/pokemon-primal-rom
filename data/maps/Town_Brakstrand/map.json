@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE02",
       "offset": -14,
       "direction": "left"
+    },
+    {
+      "map": "MAP_WESTERN_SEA",
+      "offset": -6,
+      "direction": "down"
     }
   ],
   "object_events": [],

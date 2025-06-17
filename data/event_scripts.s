@@ -1179,3 +1179,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Town_Brakstrand/scripts.inc"
 
 	.include "data/maps/Route02/scripts.inc"
+
+	.include "data/maps/WesternSea/scripts.inc"

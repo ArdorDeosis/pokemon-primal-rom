@@ -5370,8 +5370,8 @@
       "name": "Spragholt_ShamanCave_Layout",
       "width": 20,
       "height": 20,
-      "border_width": 2,
-      "border_height": 2,
+      "border_width": 1,
+      "border_height": 1,
       "primary_tileset": "gTileset_NorthCave",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Spragholt_ShamanCave/border.bin",
@@ -5424,6 +5424,18 @@
       "secondary_tileset": "gTileset_Forest",
       "border_filepath": "data/layouts/Route02/border.bin",
       "blockdata_filepath": "data/layouts/Route02/map.bin"
+    },
+    {
+      "id": "LAYOUT_WESTERN_SEA",
+      "name": "WesternSea_Layout",
+      "width": 32,
+      "height": 40,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Forest",
+      "border_filepath": "data/layouts/WesternSea/border.bin",
+      "blockdata_filepath": "data/layouts/WesternSea/map.bin"
     }
   ]
 }

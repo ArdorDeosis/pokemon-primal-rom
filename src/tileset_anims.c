@@ -78,6 +78,8 @@ static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
 
 static void QueueAnimTiles_TestCamp_Campfire(u16);
+static void QueueAnimTiles_TestCamp_Water(u16);
+static void QueueAnimTiles_TestCamp_WaterEdge(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -557,6 +559,46 @@ const u16 *const gTilesetAnims_TestCamp_Campfire[] = {
     gTilesetAnims_TestCamp_Campfire_Frame1,
 };
 
+const u16 gTilesetAnims_TestCamp_Water_Frame0[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/0.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame1[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/1.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame2[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/2.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame3[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/3.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame4[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/4.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame5[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/5.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame6[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/6.4bpp");
+const u16 gTilesetAnims_TestCamp_Water_Frame7[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/water/7.4bpp");
+
+const u16 *const gTilesetAnims_TestCamp_Water[] = {
+    gTilesetAnims_TestCamp_Water_Frame0,
+    gTilesetAnims_TestCamp_Water_Frame1,
+    gTilesetAnims_TestCamp_Water_Frame2,
+    gTilesetAnims_TestCamp_Water_Frame3,
+    gTilesetAnims_TestCamp_Water_Frame4,
+    gTilesetAnims_TestCamp_Water_Frame5,
+    gTilesetAnims_TestCamp_Water_Frame6,
+    gTilesetAnims_TestCamp_Water_Frame7,
+};
+
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame0[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/0.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame1[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/1.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame2[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/2.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame3[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/3.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame4[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/4.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame5[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/5.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame6[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/6.4bpp");
+const u16 gTilesetAnims_TestCamp_WaterEdge_Frame7[] = INCBIN_U16("data/tilesets/primary/test_camp/anim/wateredge/7.4bpp");
+
+const u16 *const gTilesetAnims_TestCamp_WaterEdge[] = {
+    gTilesetAnims_TestCamp_WaterEdge_Frame0,
+    gTilesetAnims_TestCamp_WaterEdge_Frame1,
+    gTilesetAnims_TestCamp_WaterEdge_Frame2,
+    gTilesetAnims_TestCamp_WaterEdge_Frame3,
+    gTilesetAnims_TestCamp_WaterEdge_Frame4,
+    gTilesetAnims_TestCamp_WaterEdge_Frame5,
+    gTilesetAnims_TestCamp_WaterEdge_Frame6,
+    gTilesetAnims_TestCamp_WaterEdge_Frame7,
+};
+
 
 static void ResetTilesetAnimBuffer(void)
 {
@@ -590,6 +632,11 @@ void InitTilesetAnimations(void)
     ResetTilesetAnimBuffer();
     _InitPrimaryTilesetAnimation();
     _InitSecondaryTilesetAnimation();
+}
+
+void InitPrimaryTilesetAnimation(void)
+{
+    _InitPrimaryTilesetAnimation();
 }
 
 void InitSecondaryTilesetAnimation(void)
@@ -674,6 +721,10 @@ static void TilesetAnim_TestCamp(u16 timer)
 {
     if (timer % 8 == 0)
         QueueAnimTiles_TestCamp_Campfire(timer / 8);
+    if (timer % 16 == 0)
+        QueueAnimTiles_TestCamp_Water(timer / 16);
+    if (timer % 16 == 7)
+        QueueAnimTiles_TestCamp_WaterEdge(timer / 16);
 }
 
 static void QueueAnimTiles_General_Flower(u16 timer)
@@ -704,6 +755,18 @@ static void QueueAnimTiles_TestCamp_Campfire(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_TestCamp_Campfire);
     AppendTilesetAnimToBuffer(gTilesetAnims_TestCamp_Campfire[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x0F0)), 6 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_TestCamp_Water(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_TestCamp_Water);
+    AppendTilesetAnimToBuffer(gTilesetAnims_TestCamp_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1C0)), 12 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_TestCamp_WaterEdge(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_TestCamp_WaterEdge);
+    AppendTilesetAnimToBuffer(gTilesetAnims_TestCamp_WaterEdge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1D0)), 6 * TILE_SIZE_4BPP);
 }
 
 void InitTilesetAnim_Petalburg(void)

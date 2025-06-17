@@ -867,11 +867,14 @@ if (I_VS_SEEKER_CHARGING != 0)
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
     InitMap();
+    CopyPrimaryTilesetToVramUsingHeap(gMapHeader.mapLayout); // reload primary tiles on map transition
+    LoadPrimaryTilesetPalette(gMapHeader.mapLayout, TRUE); // reload primary tiles on map transition
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
     LoadSecondaryTilesetPalette(gMapHeader.mapLayout, TRUE); // skip copying to Faded, gamma shift will take care of it
 
     ApplyWeatherColorMapToPals(NUM_PALS_IN_PRIMARY, NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY); // palettes [6,12]
 
+    InitPrimaryTilesetAnimation(); // reload primary tiles on map transition
     InitSecondaryTilesetAnimation();
     UpdateLocationHistoryForRoamer();
     MoveAllRoamers();

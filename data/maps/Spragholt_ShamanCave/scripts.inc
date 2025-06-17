@@ -15,11 +15,11 @@ Spragholt_ShamanCave_GetPlaceholderPokemon::
 	compare VAR_RESULT, YES
 	goto_if_eq Spragholt_ShamanCave_GetPlaceholderPokemon_2
 Spragholt_ShamanCave_GetPlaceholderPokemon_1:
-# 16 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	hidemonpic
 # 17 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmessage
+	hidemonpic
 # 18 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	waitmessage
+# 19 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	releaseall
 	end
 
@@ -37,6 +37,8 @@ Spragholt_ShamanCave_GetPlaceholderPokemon_4:
 # 12 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	removeobject LOCALID_PLACEHOLDER_STARTER_BALL
 # 13 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	setflag FLAG_RECEIVED_STARTER
+# 14 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
 	goto Spragholt_ShamanCave_GetPlaceholderPokemon_1
 

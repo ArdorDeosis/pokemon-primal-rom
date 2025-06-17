@@ -10,6 +10,7 @@ script Spragholt_ShamanCave_GetPlaceholderPokemon {
         if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
             msgbox("You received ONIX!")
             removeobject(LOCALID_PLACEHOLDER_STARTER_BALL)
+            setflag(FLAG_RECEIVED_STARTER)
             playfanfare(MUS_OBTAIN_ITEM)
         }
     }
