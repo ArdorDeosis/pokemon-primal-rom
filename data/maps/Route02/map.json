@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_TOWN_BRAKSTRAND",
-      "offset": 14,
+      "offset": 10,
       "direction": "right"
     }
   ],

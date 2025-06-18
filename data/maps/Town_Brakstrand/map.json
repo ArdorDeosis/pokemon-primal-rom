@@ -15,17 +15,17 @@
   "connections": [
     {
       "map": "MAP_ROUTE01",
-      "offset": 0,
+      "offset": 4,
       "direction": "right"
     },
     {
       "map": "MAP_ROUTE02",
-      "offset": -14,
+      "offset": -10,
       "direction": "left"
     },
     {
       "map": "MAP_WESTERN_SEA",
-      "offset": -6,
+      "offset": -10,
       "direction": "down"
     }
   ],
