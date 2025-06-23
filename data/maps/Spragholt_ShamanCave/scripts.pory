@@ -1,4 +1,13 @@
-mapscripts Spragholt_ShamanCave_MapScripts {}
+mapscripts Spragholt_ShamanCave_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: HideFollowingPokemon
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_GAME_INTRO_STAGE, 1: Spragholt_ShamanCave_GettingDraggedIn
+	]
+}
+
+script HideFollowingPokemon {
+    setflag(FLAG_TEMP_1)
+}
 
 script Spragholt_ShamanCave_GetPlaceholderPokemon {
     lockall
@@ -8,14 +17,83 @@ script Spragholt_ShamanCave_GetPlaceholderPokemon {
     if (var(VAR_RESULT) == YES) {
         givemon(SPECIES_ONIX, 5)
         if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
-            msgbox("You received ONIX!")
-            removeobject(LOCALID_PLACEHOLDER_STARTER_BALL)
-            setflag(FLAG_RECEIVED_STARTER)
+            setvar(VAR_GAME_INTRO_STAGE, 3)
             playfanfare(MUS_OBTAIN_ITEM)
         }
     }
     hidemonpic
+    msgbox("You received ONIX!")
+    waitmessage
+    applymovement(LOCALID_PLACEHOLDER_STARTER_BALL, moves(jump_in_place_left_right))
+    waitmovement
+    getobjectxy(LOCALID_PLACEHOLDER_STARTER_BALL, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    removeobject(LOCALID_PLACEHOLDER_STARTER_BALL)
+    addobject(ONIX_FOLLOW)
+    setobjectxy(ONIX_FOLLOW, VAR_TEMP_1, VAR_TEMP_2)
+    applymovement(ONIX_FOLLOW, moves(face_player))
+    releaseall
+    end
+}
+
+script Spragholt_ShamanCave_GettingDraggedIn {
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(
+        walk_left,
+        walk_up * 2,
+        walk_left * 2,
+        walk_down * 2,
+        walk_left * 5,
+        walk_up * 2,
+        step_end
+    ))
+    waitmovement
+    call(Spragholt_ShamanCave_ChosePokemonSpeech)
+}
+
+script Spragholt_ShamanCave_GettingCalledOver {
+    lockall
+    applymovement(LOCALID_SHAMAN, moves(emote_exclamation_mark))
+    waitmovement
+    msgbox(format("Ah, {PLAYER}.\pYou're late.\pCome here, will ya?"))
+    waitmessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(
+        walk_left * 4,
+        walk_up * 2,
+        step_end
+    ))
+    waitmovement
+    call(Spragholt_ShamanCave_ChosePokemonSpeech)
+}
+
+script Spragholt_ShamanCave_ChosePokemonSpeech {
+    msgbox(format("bla bla bla\pChose your Pokémon!"))
+    setvar(VAR_GAME_INTRO_STAGE, 2)
     waitmessage
     releaseall
     end
+}
+
+script Spragholt_ShamanCave_Trigger_LowerFloorBottleneck {
+    if (var(VAR_GAME_INTRO_STAGE) < 2){
+        call(Spragholt_ShamanCave_GettingCalledOver)
+        end
+    }
+    if (var(VAR_GAME_INTRO_STAGE) == 2){
+        lockall
+        msgbox(format("Where are you going? You haven't chosen a Pokémon yet!"))
+        waitmessage
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left, step_end))
+        waitmovement
+        releaseall
+        end
+    }
+}
+
+script Spragholt_ShamanCave_Shaman {
+    if (var(VAR_GAME_INTRO_STAGE) <= 2){
+        lockall
+        msgbox(format("Go on then, chose a Pokémon. They are in the room behind me."), MSGBOX_NPC)
+        releaseall
+        end
+    }
 }

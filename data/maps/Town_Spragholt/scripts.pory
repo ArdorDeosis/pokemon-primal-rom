@@ -1,4 +1,13 @@
-mapscripts Town_Spragholt_MapScripts {}
+mapscripts Town_Spragholt_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: Town_Spragholt_HideShaman
+}
+
+script Town_Spragholt_HideShaman {
+    setflag(FLAG_TEMP_2)
+}
+
+
+// === FIRE MAN ===
 
 script Town_Spragholt_EventScript_FireMan {
     lock
@@ -9,7 +18,7 @@ script Town_Spragholt_EventScript_FireMan {
         msgbox(format("Thought as much..."))
     }
     else {
-        msgbox(format("Cool cave dwellers can make fire. But REALLY cool cave dwellers...\pthey dare to jump over it!\pThey proof they have a fast butt, or they get a crispy butt.\pDare you?"))
+        msgbox(format("Cool cave dwellers can make fire. But REALLY cool cave dwellers...\pthey dare to jump over it!\pYou'll need a FAST butt, or you get a CRISPY butt.\pDare you?"))
     }
     release
     end
@@ -47,15 +56,78 @@ script Town_Spragholt_Trigger_StandAtFireWest {
     setvar(VAR_TEMP_F, 4)
 }
 
+// === GAME INTRO ===
+
+script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_North {
+    setvar(VAR_TEMP_0, 1)
+    call(Town_Spragholt_Trigger_TryToLeaveWithoutPokemon)
+}
+
+script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_South {
+    setvar(VAR_TEMP_0, 2)
+    call(Town_Spragholt_Trigger_TryToLeaveWithoutPokemon)
+}
+
 script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
-    if(flag(FLAG_RECEIVED_STARTER)) {
+    if(var(VAR_GAME_INTRO_STAGE) > 1) {
         end
-    }    
+    }
     lockall
-    msgbox(format("You should see the shaman before wandering off!"))
-    waitmessage
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_question_mark))
     waitmovement
-    release
+    switch (var(VAR_TEMP_0)) {
+        case 1:
+        case 2:
+            msgbox(format("Wait!"), MSGBOX_NPC)
+        default:
+            msgbox(format("For fuck's sake!"))
+    }
+    clearflag(FLAG_TEMP_2)
+    addobject(LOCALID_SPRAGHOLT_TOWN_SHAMAN)
+    waitmessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    switch (var(VAR_TEMP_0)) {
+        case 1:
+            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_up * 7, walk_left * 6))
+        case 2:
+            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_up * 6, walk_left * 6))
+    }
+    waitmovement
+    msgbox(format("Hasn't your father told you to come see me?\pIt's rude to keep an old lady waiting.\pCome..."))
+    
+    switch (var(VAR_TEMP_0)) {
+        case 1:
+            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(
+                walk_right * 6,
+                walk_down * 8,
+                walk_left * 3,
+                walk_up,
+                set_invisible
+            ))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(
+                walk_right * 7,
+                walk_down * 8,
+                walk_left * 3,
+                walk_up
+            ))
+        case 2:
+            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(
+                walk_right * 6,
+                walk_down * 7,
+                walk_left * 3,
+                walk_up,
+                set_invisible
+            ))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(
+                walk_right * 7,
+                walk_down * 7,
+                walk_left * 3,
+                walk_up
+            ))
+    }
+    waitmovement
+    setvar(VAR_GAME_INTRO_STAGE, 1)
+    warp(MAP_SPRAGHOLT_SHAMAN_CAVE, 0)
+    releaseall
     end
 }

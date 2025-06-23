@@ -143,6 +143,12 @@
       "map": "MAP_SPRAGHOLT_PLAYER_HOME",
       "x": 3,
       "y": 5
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE02",
+      "map": "MAP_ROUTE02",
+      "x": 25,
+      "y": 15
     }
   ]
 }

@@ -216,3 +216,6 @@ const u16 gMetatileAttributes_NorthCave[] = INCBIN_U16("data/tilesets/primary/no
 
 const u16 gMetatiles_Forest[] = INCBIN_U16("data/tilesets/secondary/forest/metatiles.bin");
 const u16 gMetatileAttributes_Forest[] = INCBIN_U16("data/tilesets/secondary/forest/metatile_attributes.bin");
+
+const u16 gMetatiles_Tannholt[] = INCBIN_U16("data/tilesets/secondary/tannholt/metatiles.bin");
+const u16 gMetatileAttributes_Tannholt[] = INCBIN_U16("data/tilesets/secondary/tannholt/metatile_attributes.bin");

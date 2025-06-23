@@ -17,6 +17,11 @@
       "map": "MAP_TOWN_BRAKSTRAND",
       "offset": 10,
       "direction": "right"
+    },
+    {
+      "map": "MAP_TOWN_TANNHOLT",
+      "offset": -8,
+      "direction": "left"
     }
   ],
   "object_events": [],

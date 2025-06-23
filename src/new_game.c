@@ -52,7 +52,7 @@
 extern const u8 EventScript_ResetAllMapFlags[];
 
 static void ClearFrontierRecord(void);
-static void WarpToTruck(void);
+static void WarpToHomeCave(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
 static void ResetDexNav(void);
@@ -129,7 +129,7 @@ static void ClearFrontierRecord(void)
     gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
 }
 
-static void WarpToTruck(void)
+static void WarpToHomeCave(void)
 {
     SetWarpDestination(MAP_GROUP(MAP_SPRAGHOLT_PLAYER_HOME), MAP_NUM(MAP_SPRAGHOLT_PLAYER_HOME), WARP_ID_NONE, -1, -1);
     WarpIntoMap();
@@ -197,7 +197,7 @@ void NewGameInitData(void)
     InitDewfordTrend();
     ResetFanClub();
     ResetLotteryCorner();
-    WarpToTruck();
+    WarpToHomeCave();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();

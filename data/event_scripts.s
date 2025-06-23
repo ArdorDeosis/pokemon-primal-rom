@@ -1181,3 +1181,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route02/scripts.inc"
 
 	.include "data/maps/WesternSea/scripts.inc"
+
+	.include "data/maps/Town_Tannholt/scripts.inc"

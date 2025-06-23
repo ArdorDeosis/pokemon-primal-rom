@@ -5337,7 +5337,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Forest",
       "border_filepath": "data/layouts/Route01/border.bin",
       "blockdata_filepath": "data/layouts/Route01/map.bin"
     },
@@ -5417,7 +5417,7 @@
       "id": "LAYOUT_ROUTE02",
       "name": "Route02_Layout",
       "width": 50,
-      "height": 24,
+      "height": 31,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
@@ -5436,6 +5436,18 @@
       "secondary_tileset": "gTileset_Forest",
       "border_filepath": "data/layouts/WesternSea/border.bin",
       "blockdata_filepath": "data/layouts/WesternSea/map.bin"
+    },
+    {
+      "id": "LAYOUT_TOWN_TANNHOLT",
+      "name": "Town_Tannholt_Layout",
+      "width": 60,
+      "height": 32,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/Town_Tannholt/border.bin",
+      "blockdata_filepath": "data/layouts/Town_Tannholt/map.bin"
     }
   ]
 }

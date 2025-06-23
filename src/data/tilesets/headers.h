@@ -841,6 +841,7 @@ const struct Tileset gTileset_TestCamp =
     .metatileAttributes = gMetatileAttributes_TestCamp,
     .callback = InitTilesetAnim_TestCamp,
 };
+
 const struct Tileset gTileset_NorthCave =
 {
     .isCompressed = TRUE,
@@ -860,5 +861,16 @@ const struct Tileset gTileset_Forest =
     .palettes = gTilesetPalettes_Forest,
     .metatiles = gMetatiles_Forest,
     .metatileAttributes = gMetatileAttributes_Forest,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Tannholt =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Tannholt,
+    .palettes = gTilesetPalettes_Tannholt,
+    .metatiles = gMetatiles_Tannholt,
+    .metatileAttributes = gMetatileAttributes_Tannholt,
     .callback = NULL,
 };
