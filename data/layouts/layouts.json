@@ -5448,6 +5448,90 @@
       "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/Town_Tannholt/border.bin",
       "blockdata_filepath": "data/layouts/Town_Tannholt/map.bin"
+    },
+    {
+      "id": "LAYOUT_BRAKSTRAND_POKE_BALL_CRAFTER_CAVE",
+      "name": "Brakstrand_PokeBallCrafterCave_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Brakstrand_PokeBallCrafterCave/border.bin",
+      "blockdata_filepath": "data/layouts/Brakstrand_PokeBallCrafterCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_BRAKSTRAND_SHAMAN_CAVE",
+      "name": "Brakstrand_ShamanCave_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Brakstrand_ShamanCave/border.bin",
+      "blockdata_filepath": "data/layouts/Brakstrand_ShamanCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_BRAKSTRAND_CAVE3",
+      "name": "Brakstrand_Cave3_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Brakstrand_Cave3/border.bin",
+      "blockdata_filepath": "data/layouts/Brakstrand_Cave3/map.bin"
+    },
+    {
+      "id": "LAYOUT_TANNHOLT_SHOP_CAVE",
+      "name": "Tannholt_ShopCave_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Tannholt_ShopCave/border.bin",
+      "blockdata_filepath": "data/layouts/Tannholt_ShopCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_TANNHOLT_SHAMAN_CAVE",
+      "name": "Tannholt_ShamanCave_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Tannholt_ShamanCave/border.bin",
+      "blockdata_filepath": "data/layouts/Tannholt_ShamanCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_TANNHOLT_CAVE3",
+      "name": "Tannholt_Cave3_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Tannholt_Cave3/border.bin",
+      "blockdata_filepath": "data/layouts/Tannholt_Cave3/map.bin"
+    },
+    {
+      "id": "LAYOUT_BRAKSTRAND_CAVE4",
+      "name": "Brakstrand_Cave4_Layout",
+      "width": 9,
+      "height": 7,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Brakstrand_Cave4/border.bin",
+      "blockdata_filepath": "data/layouts/Brakstrand_Cave4/map.bin"
     }
   ]
 }

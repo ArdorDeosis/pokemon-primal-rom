@@ -1,0 +1,7 @@
+mapscripts Tannholt_Cave3_MapScripts {}
+
+script Tannholt_Cave3_Mason {
+    lockall
+    msgbox(format("I collect stones! And then I hit stones with other stones. When they are flat, I put them on the ground. Nice to walk on, don't get muddy."))
+    releaseall
+}

@@ -1,0 +1,28 @@
+{
+  "id": "MAP_BRAKSTRAND_POKE_BALL_CRAFTER_CAVE",
+  "name": "Brakstrand_PokeBallCrafterCave",
+  "layout": "LAYOUT_BRAKSTRAND_POKE_BALL_CRAFTER_CAVE",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_TOWN_BRAKSTRAND",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

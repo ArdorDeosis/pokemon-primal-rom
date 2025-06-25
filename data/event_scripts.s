@@ -1183,3 +1183,17 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/WesternSea/scripts.inc"
 
 	.include "data/maps/Town_Tannholt/scripts.inc"
+
+	.include "data/maps/Brakstrand_PokeBallCrafterCave/scripts.inc"
+
+	.include "data/maps/Brakstrand_ShamanCave/scripts.inc"
+
+	.include "data/maps/Brakstrand_Cave3/scripts.inc"
+
+	.include "data/maps/Tannholt_ShopCave/scripts.inc"
+
+	.include "data/maps/Tannholt_ShamanCave/scripts.inc"
+
+	.include "data/maps/Tannholt_Cave3/scripts.inc"
+
+	.include "data/maps/Brakstrand_Cave4/scripts.inc"
