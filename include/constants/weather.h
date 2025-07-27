@@ -23,8 +23,9 @@
 
 // dynamic weather
 #define WEATHER_DYN_SOME_RAIN           23
+#define WEATHER_DYN_SOME_RAIN_SHADE     24
 // weather type end
-#define WEATHER_COUNT                   24
+#define WEATHER_COUNT                   25
 
 // These are used in maps' coord_weather_event entries.
 // They are not a one-to-one mapping with the engine's
@@ -44,6 +45,7 @@
 #define COORD_EVENT_WEATHER_ROUTE123_CYCLE      21
 // dynamic weather
 #define COORD_EVENT_WEATHER_DYN_SOME_RAIN       22
+#define COORD_EVENT_WEATHER_DYN_SOME_RAIN_SHADE 23
 
 // These are the "abnormal weather events" that are used
 // to find Kyogre and Groudon.

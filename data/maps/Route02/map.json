@@ -3,7 +3,7 @@
   "name": "Route02",
   "layout": "LAYOUT_ROUTE02",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ROUTE_02",
   "requires_flash": false,
   "weather": "WEATHER_DYN_SOME_RAIN",
   "map_type": "MAP_TYPE_NONE",
@@ -20,25 +20,32 @@
     },
     {
       "map": "MAP_TOWN_TANNHOLT",
-      "offset": -8,
+      "offset": -15,
       "direction": "left"
     }
   ],
   "object_events": [],
   "warp_events": [
     {
-      "x": 27,
+      "x": 26,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_HARGWALD",
+      "dest_map": "MAP_HARGWALD_SE",
       "dest_warp_id": "0"
     },
     {
       "x": 17,
-      "y": 13,
+      "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_HARGWALD",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_HARGWALD_SW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE02_CAVE1",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

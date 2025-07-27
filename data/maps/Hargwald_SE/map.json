@@ -1,0 +1,44 @@
+{
+  "id": "MAP_HARGWALD_SE",
+  "name": "Hargwald_SE",
+  "layout": "LAYOUT_HARGWALD_SE",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_HARGWALD",
+  "requires_flash": false,
+  "weather": "WEATHER_DYN_SOME_RAIN_SHADE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_HARGWALD_NE",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_HARGWALD_SW",
+      "offset": 13,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_HARGWALD_NW",
+      "offset": -13,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 28,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE02",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

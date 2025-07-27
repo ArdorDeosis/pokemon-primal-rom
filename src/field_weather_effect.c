@@ -2623,6 +2623,17 @@ static const u8 sWeatherStatesDynSomeRain[DYNAMIC_WEATHER_STATE_COUNT] = {
     WEATHER_RAIN,
 };
 
+static const u8 sWeatherStatesDynSomeRainShade[DYNAMIC_WEATHER_STATE_COUNT] = {
+    WEATHER_SHADE,
+    WEATHER_SHADE,
+    WEATHER_SHADE,
+    WEATHER_SHADE,
+    WEATHER_SHADE,
+    WEATHER_SHADE,
+    WEATHER_RAIN,
+    WEATHER_RAIN,
+};
+
 static u8 GetDynamicWeatherNum(const u8* cycleArray, u8 cycleLength)
 {
     u8 stage = gSaveBlock1Ptr->weatherCycleStage % cycleLength;
@@ -2652,6 +2663,7 @@ static u8 TranslateWeatherNum(u8 weather)
     // case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
     // case WEATHER_ROUTE123_CYCLE:     return sWeatherCycleRoute123[gSaveBlock1Ptr->weatherCycleStage];
     case WEATHER_DYN_SOME_RAIN:      return GetDynamicWeatherNum(sWeatherStatesDynSomeRain, 8);
+    case WEATHER_DYN_SOME_RAIN_SHADE:return GetDynamicWeatherNum(sWeatherStatesDynSomeRainShade, 8);
     default:                         return WEATHER_NONE;
     }
 }

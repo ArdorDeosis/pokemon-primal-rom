@@ -490,7 +490,7 @@
     },
     {
       "id": "MAPSEC_ABANDONED_SHIP",
-      "name": "ABANDONED SHIP",
+      "name": "ROUTE 5",
       "x": 6,
       "y": 14,
       "width": 1,
@@ -1705,7 +1705,39 @@
     },
     {
       "id": "MAPSEC_SPRAGHOLT",
-      "name": "SPRAGHOLT",
+      "name": "Spragholt",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_BRAKSTRAND",
+      "name": "Brakstrand",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_TANNHOLT",
+      "name": "Tannholt",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_VALLEY_OF_TRIALS",
+      "name": "Valley of Trials",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_HARGWALD",
+      "name": "Hargwald Forest",
       "x": 6,
       "y": 14,
       "width": 1,
@@ -1713,7 +1745,47 @@
     },
     {
       "id": "MAPSEC_ROUTE_01",
-      "name": "ROUTE 1",
+      "name": "Route 1",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_02",
+      "name": "Route 2",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_03",
+      "name": "Route 3",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_04",
+      "name": "Route 4",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_05",
+      "name": "Route 5",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_06",
+      "name": "Route 6",
       "x": 6,
       "y": 14,
       "width": 1,

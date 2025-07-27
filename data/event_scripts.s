@@ -1197,3 +1197,15 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Tannholt_Cave3/scripts.inc"
 
 	.include "data/maps/Brakstrand_Cave4/scripts.inc"
+
+	.include "data/maps/ValleyOfTrials/scripts.inc"
+
+	.include "data/maps/Route02_Cave1/scripts.inc"
+
+	.include "data/maps/Hargwald_NE/scripts.inc"
+
+	.include "data/maps/Hargwald_NW/scripts.inc"
+
+	.include "data/maps/Hargwald_SE/scripts.inc"
+
+	.include "data/maps/Hargwald_SW/scripts.inc"

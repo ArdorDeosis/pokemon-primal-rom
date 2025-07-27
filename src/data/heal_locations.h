@@ -148,12 +148,6 @@ static const struct HealLocation sHealLocations[NUM_HEAL_LOCATIONS - 1] = {
         .x = 3,
         .y = 5,
     },
-    [HEAL_LOCATION_ROUTE02 - 1] = {
-        .mapGroup = MAP_GROUP(MAP_ROUTE02),
-        .mapNum = MAP_NUM(MAP_ROUTE02),
-        .x = 25,
-        .y = 15,
-    },
 };
 
 static const u16 sWhiteoutRespawnHealCenterMapIdxs[][2] = {

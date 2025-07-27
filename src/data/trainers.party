@@ -81,18 +81,7 @@ Gender: Male
 Music: Male
 Double Battle: No
 
-=== TRAINER_SAWYER_1 ===
-Name: SAWYER
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Basic Trainer
-
-Geodude
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+/*
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
@@ -16872,4 +16861,17 @@ Double Battle: No
 
 Kyogre
 Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+*/
+
+=== TRAINER_ORSVALD ===
+Name: Orsvald
+Pic: TRAINER_PIC_BLACK_BELT
+Class: TRAINER_CLASS_GUARDIAN
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+AI: AI_FLAG_SMART_TRAINER
+
+Mankey
+Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

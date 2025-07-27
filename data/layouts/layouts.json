@@ -5325,7 +5325,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/Town_Spragholt/border.bin",
       "blockdata_filepath": "data/layouts/Town_Spragholt/map.bin"
     },
@@ -5337,7 +5337,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Forest",
+      "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/Route01/border.bin",
       "blockdata_filepath": "data/layouts/Route01/map.bin"
     },
@@ -5392,12 +5392,12 @@
     {
       "id": "LAYOUT_HARGWALD",
       "name": "Hargwald_Layout",
-      "width": 64,
-      "height": 56,
+      "width": 68,
+      "height": 60,
       "border_width": 4,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Forest",
+      "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/Hargwald/border.bin",
       "blockdata_filepath": "data/layouts/Hargwald/map.bin"
     },
@@ -5409,7 +5409,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Forest",
+      "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/Town_Brakstrand/border.bin",
       "blockdata_filepath": "data/layouts/Town_Brakstrand/map.bin"
     },
@@ -5421,7 +5421,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Forest",
+      "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/Route02/border.bin",
       "blockdata_filepath": "data/layouts/Route02/map.bin"
     },
@@ -5433,15 +5433,15 @@
       "border_width": 1,
       "border_height": 1,
       "primary_tileset": "gTileset_TestCamp",
-      "secondary_tileset": "gTileset_Forest",
+      "secondary_tileset": "gTileset_Tannholt",
       "border_filepath": "data/layouts/WesternSea/border.bin",
       "blockdata_filepath": "data/layouts/WesternSea/map.bin"
     },
     {
       "id": "LAYOUT_TOWN_TANNHOLT",
       "name": "Town_Tannholt_Layout",
-      "width": 60,
-      "height": 32,
+      "width": 27,
+      "height": 39,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_TestCamp",
@@ -5452,8 +5452,8 @@
     {
       "id": "LAYOUT_BRAKSTRAND_POKE_BALL_CRAFTER_CAVE",
       "name": "Brakstrand_PokeBallCrafterCave_Layout",
-      "width": 9,
-      "height": 7,
+      "width": 14,
+      "height": 13,
       "border_width": 1,
       "border_height": 1,
       "primary_tileset": "gTileset_NorthCave",
@@ -5512,8 +5512,8 @@
     {
       "id": "LAYOUT_TANNHOLT_CAVE3",
       "name": "Tannholt_Cave3_Layout",
-      "width": 9,
-      "height": 7,
+      "width": 11,
+      "height": 9,
       "border_width": 1,
       "border_height": 1,
       "primary_tileset": "gTileset_NorthCave",
@@ -5532,6 +5532,78 @@
       "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/Brakstrand_Cave4/border.bin",
       "blockdata_filepath": "data/layouts/Brakstrand_Cave4/map.bin"
+    },
+    {
+      "id": "LAYOUT_VALLEY_OF_TRIALS",
+      "name": "ValleyOfTrials_Layout",
+      "width": 33,
+      "height": 25,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/ValleyOfTrials/border.bin",
+      "blockdata_filepath": "data/layouts/ValleyOfTrials/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE02_CAVE1",
+      "name": "Route02_Cave1_Layout",
+      "width": 8,
+      "height": 6,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_NorthCave",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/Route02_Cave1/border.bin",
+      "blockdata_filepath": "data/layouts/Route02_Cave1/map.bin"
+    },
+    {
+      "id": "LAYOUT_HARGWALD_NE",
+      "name": "Hargwald_NE_Layout",
+      "width": 30,
+      "height": 13,
+      "border_width": 4,
+      "border_height": 2,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/Hargwald_NE/border.bin",
+      "blockdata_filepath": "data/layouts/Hargwald_NE/map.bin"
+    },
+    {
+      "id": "LAYOUT_HARGWALD_NW",
+      "name": "Hargwald_NW_Layout",
+      "width": 38,
+      "height": 26,
+      "border_width": 4,
+      "border_height": 2,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/Hargwald_NW/border.bin",
+      "blockdata_filepath": "data/layouts/Hargwald_NW/map.bin"
+    },
+    {
+      "id": "LAYOUT_HARGWALD_SE",
+      "name": "Hargwald_SE_Layout",
+      "width": 30,
+      "height": 47,
+      "border_width": 4,
+      "border_height": 2,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/Hargwald_SE/border.bin",
+      "blockdata_filepath": "data/layouts/Hargwald_SE/map.bin"
+    },
+    {
+      "id": "LAYOUT_HARGWALD_SW",
+      "name": "Hargwald_SW_Layout",
+      "width": 38,
+      "height": 34,
+      "border_width": 4,
+      "border_height": 2,
+      "primary_tileset": "gTileset_TestCamp",
+      "secondary_tileset": "gTileset_Tannholt",
+      "border_filepath": "data/layouts/Hargwald_SW/border.bin",
+      "blockdata_filepath": "data/layouts/Hargwald_SW/map.bin"
     }
   ]
 }

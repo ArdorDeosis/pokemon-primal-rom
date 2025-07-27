@@ -1509,7 +1509,7 @@
 
 // originally unused flags; starting to use these as my own
 
-#define FLAG_RECEIVED_STARTER                       (SYSTEM_FLAGS + 0x85) // not used anymore
+#define FLAG_RECEIVED_STARTER                       (SYSTEM_FLAGS + 0x85)
 #define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
 #define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag

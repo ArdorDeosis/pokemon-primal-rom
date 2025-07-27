@@ -36,7 +36,8 @@
     "gMapGroup_IndoorRoute124",
     "gMapGroup_IndoorSpragholt",
     "gMapGroup_IndoorBrakstrand",
-    "gMapGroup_IndoorTannholt"
+    "gMapGroup_IndoorTannholt",
+    "gMapGroup_IndoorRoute02"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -104,7 +105,8 @@
     "Town_Brakstrand",
     "Route02",
     "WesternSea",
-    "Town_Tannholt"
+    "Town_Tannholt",
+    "ValleyOfTrials"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -442,7 +444,11 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "Hargwald"
+    "Hargwald",
+    "Hargwald_NW",
+    "Hargwald_NE",
+    "Hargwald_SW",
+    "Hargwald_SE"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
@@ -649,5 +655,8 @@
     "Tannholt_ShamanCave",
     "Tannholt_ShopCave",
     "Tannholt_Cave3"
+  ],
+  "gMapGroup_IndoorRoute02": [
+    "Route02_Cave1"
   ]
 }

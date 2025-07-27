@@ -12,10 +12,26 @@ script Town_Spragholt_HideShaman {
 script Town_Spragholt_EventScript_FireMan {
     lock
     faceplayer
+    if(var(VAR_TEMP_F) == 0) {
+        msgbox("0")
+    }
+    if(var(VAR_TEMP_F) == 1) {
+        msgbox("1")
+    }
+    if(var(VAR_TEMP_F) == 2) {
+        msgbox("2")
+    }
+    if(var(VAR_TEMP_F) == 3) {
+        msgbox("3")
+    }
+    if(var(VAR_TEMP_F) == 4) {
+        msgbox("4")
+    }
     if(flag(FLAG_TEMP_1)){
         msgbox(format("BY THE GREAT PILOWSWINE! You jumped the fire!\pSo...\pFAST or CRISPY butt?"))
         multichoice(22, 8, MULTI_FAST_OR_CRISPY, TRUE)
         msgbox(format("Thought as much..."))
+        clearflag(FLAG_TEMP_1)
     }
     else {
         msgbox(format("Cool cave dwellers can make fire. But REALLY cool cave dwellers...\pthey dare to jump over it!\pYou'll need a FAST butt, or you get a CRISPY butt.\pDare you?"))
@@ -59,12 +75,12 @@ script Town_Spragholt_Trigger_StandAtFireWest {
 // === GAME INTRO ===
 
 script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_North {
-    setvar(VAR_TEMP_0, 1)
+    setvar(VAR_TEMP_1, 1)
     call(Town_Spragholt_Trigger_TryToLeaveWithoutPokemon)
 }
 
 script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_South {
-    setvar(VAR_TEMP_0, 2)
+    setvar(VAR_TEMP_1, 2)
     call(Town_Spragholt_Trigger_TryToLeaveWithoutPokemon)
 }
 
@@ -75,7 +91,7 @@ script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
     lockall
     applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_question_mark))
     waitmovement
-    switch (var(VAR_TEMP_0)) {
+    switch (var(VAR_TEMP_1)) {
         case 1:
         case 2:
             msgbox(format("Wait!"), MSGBOX_NPC)
@@ -86,7 +102,7 @@ script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
     addobject(LOCALID_SPRAGHOLT_TOWN_SHAMAN)
     waitmessage
     applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
-    switch (var(VAR_TEMP_0)) {
+    switch (var(VAR_TEMP_1)) {
         case 1:
             applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_up * 7, walk_left * 6))
         case 2:
@@ -95,7 +111,7 @@ script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
     waitmovement
     msgbox(format("Hasn't your father told you to come see me?\pIt's rude to keep an old lady waiting.\pCome..."))
     
-    switch (var(VAR_TEMP_0)) {
+    switch (var(VAR_TEMP_1)) {
         case 1:
             applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(
                 walk_right * 6,

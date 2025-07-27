@@ -1,0 +1,26 @@
+mapscripts ValleyOfTrials_MapScripts {}
+
+script ValleyOfTrials_EventScript_GymSign {
+    lockall
+    msgbox(format("Tannholt Gym\NTODO: text"))
+    releaseall
+}
+
+script ValleyOfTrials_EventScript_Orsvald {
+    trainerbattle_single(TRAINER_ORSVALD, Orsvald_Intro, Orsvald_Outtro)
+    msgbox(Orsvald_PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+    end
+}
+
+text Orsvald_Intro{
+    "Let's fight!"
+}
+
+text Orsvald_Outtro{
+    "GG"
+}
+
+text Orsvald_PostBattle{
+    "You did well."
+}
