@@ -3459,17 +3459,17 @@ const struct Item gItemsInfo[] =
 
     [ITEM_RED_APRICORN] =
     {
-        .name = _("Red Apricorn"),
-        .price = (I_PRICE == GEN_4) ? 0 : ((I_PRICE >= GEN_5 && I_PRICE <= GEN_7) ? 20 : 200),
+        .name = _("Apricorn"),
+        .price = 200,
         .description = COMPOUND_STRING(
-            "A red apricorn.\n"
-            "It assails your\n"
-            "nostrils."),
+            "It can be used\n"
+            "to craft Poké\n"
+            "Balls."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_RedApricorn,
-        .iconPalette = gItemIconPalette_RedApricorn,
+        .iconPic = gItemIcon_Apricorn,
+        .iconPalette = gItemIconPalette_Apricorn,
     },
 
     [ITEM_BLUE_APRICORN] =
@@ -14140,5 +14140,118 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    // === Pokémon Primnal Items ===
+    
+    [ITEM_APRICORN] =
+    {
+        .name = _("Ripe Apricorn"),
+        .price = 200,
+        .description = COMPOUND_STRING(
+            "Slightly mushy.\n"
+            "It can be used to\n"
+            "craft Poké Balls."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Apricorn,
+        .iconPalette = gItemIconPalette_Apricorn,
+    },
+
+    [ITEM_FIRM_APRICORN] =
+    {
+        .name = _("Firm Apricorn"),
+        .price = 400,
+        .description = COMPOUND_STRING(
+            "Still quite firm.\n"
+            "It can be used to\n"
+            "craft Poké Balls."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_FirmApricorn,
+        .iconPalette = gItemIconPalette_FirmApricorn,
+    },
+
+    [ITEM_DENSE_APRICORN] =
+    {
+        .name = _("Dense Apricorn"),
+        .price = 400,
+        .description = COMPOUND_STRING(
+            "Dense and heavy.\n"
+            "It can be used to\n"
+            "craft Poké Balls."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DenseApricorn,
+        .iconPalette = gItemIconPalette_DenseApricorn,
+    },
+
+    // Balls
+    
+    [ITEM_WEAK_POKEBALL] =
+    {
+        .name = _("Weak Poké Ball"),
+        .price = 200,
+        .description = COMPOUND_STRING(
+            "A tool used for\n"
+            "catching wild\n"
+            "Pokémon."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_POKE,
+        .iconPic = gItemIcon_WeakPokeBall,
+        .iconPalette = gItemIconPalette_WeakPokeBall,
+    },
+
+    [ITEM_STURDY_POKEBALL] =
+    {
+        .name = _("Sturdy Poké Ball"),
+        .price = 600,
+        .description = COMPOUND_STRING(
+            "A sturdy Ball with a\n"
+            "higher catch rate\n"
+            "than a weak Poké Ball."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_GREAT,
+        .iconPic = gItemIcon_SturdyPokeBall,
+        .iconPalette = gItemIconPalette_SturdyPokeBall,
+    },
+
+    [ITEM_REINFORCED_POKEBALL] =
+    {
+        .name = _("Reinforced Ball"),
+        .price = (I_PRICE >= GEN_7) ? 800 : 1200,
+        .description = COMPOUND_STRING(
+            "A reinforced Ball with\n"
+            "a higher catch rate\n"
+            "than a sturdy Ball."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_ULTRA,
+        .iconPic = gItemIcon_ReinforcedPokeBall,
+        .iconPalette = gItemIconPalette_ReinforcedPokeBall,
+    },
+
+    [ITEM_MASTERCRAFTED_BALL] =
+    {
+        .name = _("Mastercrafted Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "The best Poké Ball\n"
+            "ever crafted.\n" 
+            "It will not fail."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_MASTER,
+        .iconPic = gItemIcon_MasterBall,
+        .iconPalette = gItemIconPalette_MasterBall,
     },
 };

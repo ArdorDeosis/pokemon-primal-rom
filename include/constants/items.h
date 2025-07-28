@@ -10,7 +10,7 @@
 #define ITEM_MASTER_BALL 4
 #define ITEM_PREMIER_BALL 5
 #define ITEM_HEAL_BALL 6
-#define ITEM_NET_BALL 7
+//#define ITEM_NET_BALL 7
 #define ITEM_NEST_BALL 8
 #define ITEM_DIVE_BALL 9
 #define ITEM_DUSK_BALL 10
@@ -994,10 +994,32 @@
 
 #define ITEM_STRANGE_BALL 828
 
+// === Pokémon Primal Items ===
+
+// Apricorns
+#define ITEM_APRICORN 1001
+#define ITEM_FIRM_APRICORN 1002
+#define ITEM_DENSE_APRICORN 1003
+
+// Pokeballs
+#define ITEM_WEAK_POKEBALL 1004
+#define ITEM_STURDY_POKEBALL 1005
+#define ITEM_REINFORCED_POKEBALL 1006
+
+#define ITEM_MASTERCRAFTED_BALL 1007
+
+#define ITEM_NET_BALL 1008
+#define ITEM_SPIRIT_WARD_BALL 1009
+#define ITEM_HEATPROOF_BALL 1010
+
+
+
+
+
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 829
+#define ITEMS_COUNT 1011
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

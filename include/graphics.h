@@ -1740,6 +1740,22 @@ extern const u16 gItemIconPalette_SwapSnack[];
 extern const u32 gItemIcon_TwiceSpicedRadish[];
 extern const u16 gItemIconPalette_TwiceSpicedRadish[];
 
+// === Pokémon Primal ===
+extern const u32 gItemIcon_Apricorn[];
+extern const u16 gItemIconPalette_Apricorn[];
+extern const u32 gItemIcon_FirmApricorn[];
+extern const u16 gItemIconPalette_FirmApricorn[];
+extern const u32 gItemIcon_DenseApricorn[];
+extern const u16 gItemIconPalette_DenseApricorn[];
+
+extern const u32 gItemIcon_WeakPokeBall[];
+extern const u16 gItemIconPalette_WeakPokeBall[];
+extern const u32 gItemIcon_SturdyPokeBall[];
+extern const u16 gItemIconPalette_SturdyPokeBall[];
+extern const u32 gItemIcon_ReinforcedPokeBall[];
+extern const u16 gItemIconPalette_ReinforcedPokeBall[];
+
+
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u16 gItemIconPalette_ReturnToFieldArrow[];
 

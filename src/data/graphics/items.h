@@ -2099,3 +2099,22 @@ const u16 gItemIconPalette_SwapSnack[] = INCBIN_U16("graphics/items/icon_palette
 
 const u32 gItemIcon_TwiceSpicedRadish[] = INCBIN_U32("graphics/items/icons/twice_spiced_radish.4bpp.lz");
 const u16 gItemIconPalette_TwiceSpicedRadish[] = INCBIN_U16("graphics/items/icon_palettes/twice_spiced_radish.gbapal");
+
+
+// === Pokémon Primal Items ===
+
+// Apricorns
+const u32 gItemIcon_Apricorn[] = INCBIN_U32("graphics/items/icons/apricorn.4bpp.lz");
+const u16 gItemIconPalette_Apricorn[] = INCBIN_U16("graphics/items/icon_palettes/apricorn.gbapal");
+const u32 gItemIcon_FirmApricorn[] = INCBIN_U32("graphics/items/icons/firm_apricorn.4bpp.lz");
+const u16 gItemIconPalette_FirmApricorn[] = INCBIN_U16("graphics/items/icon_palettes/firm_apricorn.gbapal");
+const u32 gItemIcon_DenseApricorn[] = INCBIN_U32("graphics/items/icons/dense_apricorn.4bpp.lz");
+const u16 gItemIconPalette_DenseApricorn[] = INCBIN_U16("graphics/items/icon_palettes/dense_apricorn.gbapal");
+
+// Balls
+const u32 gItemIcon_WeakPokeBall[] = INCBIN_U32("graphics/items/icons/weak_pokeball.4bpp.lz");
+const u16 gItemIconPalette_WeakPokeBall[] = INCBIN_U16("graphics/items/icon_palettes/weak_pokeball.gbapal");
+const u32 gItemIcon_SturdyPokeBall[] = INCBIN_U32("graphics/items/icons/sturdy_pokeball.4bpp.lz");
+const u16 gItemIconPalette_SturdyPokeBall[] = INCBIN_U16("graphics/items/icon_palettes/sturdy_pokeball.gbapal");
+const u32 gItemIcon_ReinforcedPokeBall[] = INCBIN_U32("graphics/items/icons/reinforced_pokeball.4bpp.lz");
+const u16 gItemIconPalette_ReinforcedPokeBall[] = INCBIN_U16("graphics/items/icon_palettes/reinforced_pokeball.gbapal");

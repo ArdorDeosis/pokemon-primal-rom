@@ -1,1 +1,50 @@
 mapscripts Brakstrand_PokeBallCrafterCave_MapScripts {}
+
+
+script Brakstrand_PokeBallCrafterCave_TalkToCrafter {
+    lockall
+    switch (var(VAR_GAME_INTRO_STAGE)) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+            call(Brakstrand_PokeBallCrafterCave_TalkToCrafter_StageLess4)
+        case 4:
+            call(Brakstrand_PokeBallCrafterCave_TalkToCrafter_Stage4)
+        default:
+            call(Brakstrand_PokeBallCrafterCave_TalkToCrafter_Default)
+
+    }
+    releaseall
+}
+
+
+script Brakstrand_PokeBallCrafterCave_TalkToCrafter_Default {
+    msgbox(format("Default talk."))
+    waitmessage
+}
+
+script Brakstrand_PokeBallCrafterCave_TalkToCrafter_StageLess4 {
+    msgbox(format("Get APRICORN."))
+    waitmessage
+    setvar(VAR_GAME_INTRO_STAGE, 4)
+}
+
+script Brakstrand_PokeBallCrafterCave_TalkToCrafter_Stage4 {
+    if(checkitem(ITEM_APRICORN)) {
+        removeitem(ITEM_APRICORN)
+        msgbox(format("I took APRICORN."))
+        waitmessage
+        giveitem(ITEM_WEAK_POKEBALL)
+        giveitem(ITEM_STURDY_POKEBALL)
+        giveitem(ITEM_REINFORCED_POKEBALL)
+        setvar(VAR_GAME_INTRO_STAGE, 5)
+    }
+    else {
+        msgbox(format("No APRICORN yet? Look near beach."))
+        waitmessage
+        giveitem(ITEM_APRICORN)
+        giveitem(ITEM_FIRM_APRICORN)
+        giveitem(ITEM_DENSE_APRICORN)
+    }
+}
