@@ -27,7 +27,7 @@ script(local) HideFollowingPokemon {
 
 script Spragholt_ShamanCave_Shaman {
     lockall
-    if (var(VAR_GAME_INTRO_STAGE) <= TALKED_TO_SHAMAN) {
+    if (var(VAR_GAME_INTRO_STAGE) < CHOSE_POKEMON) {
         msgbox(format(
             "Still here?\pWhat, need me to hold your hand?\nThey're behind me!\p"
             "Big ones, small ones... all with teeth and attitude.\p"
@@ -35,7 +35,33 @@ script Spragholt_ShamanCave_Shaman {
         ), MSGBOX_NPC)
         waitmessage
     } 
-    // TODO: other stages
+    elif (var(VAR_GAME_INTRO_STAGE) >= CHOSE_POKEMON && var(VAR_GAME_INTRO_STAGE) < GOT_SENT_TO_COLLECT_APRICORN) {
+        msgbox(format(
+            "Do you have my Poké Ball yet? No? "
+            "Then what are you flappin' your gums here for? Go on!"
+        ), MSGBOX_NPC)
+        waitmessage
+    }
+    elif (var(VAR_GAME_INTRO_STAGE) >= GOT_SENT_TO_COLLECT_APRICORN && var(VAR_GAME_INTRO_STAGE) < DELIVERED_POKEBALL) {
+        msgbox(format(
+            "You look like a bag of chewed roots. "
+            "Sit still for a second."
+        ))
+        waitmessage
+        // TODO: heal script, keep as todo comment for now
+        if(checkitem(ITEM_ISOLDES_POKEBALL)){
+            msgbox(format(
+                "Ahh, there it is. My Poké Ball, finally. Off you go now.\p"
+                "Maybe go see your father before you vanish into the grass."
+            ))
+            waitmessage
+            removeitem(ITEM_ISOLDES_POKEBALL)
+            setvar(VAR_GAME_INTRO_STAGE, DELIVERED_POKEBALL)
+        } else {
+            msgbox(format("Still no Poké Ball? Then what are you even doing here? Shoo!"))
+            waitmessage
+        }
+    }
     releaseall
 }
 
