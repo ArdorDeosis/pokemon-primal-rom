@@ -10,6 +10,8 @@ Spragholt_PlayerHome_EventScript_FatherBeforePokemon::
 # 6 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	msgbox Spragholt_PlayerHome_EventScript_FatherBeforePokemon_Text_0
 # 7 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	setflag FLAG_SYS_POKEDEX_GET
+# 8 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	release
 	end
 

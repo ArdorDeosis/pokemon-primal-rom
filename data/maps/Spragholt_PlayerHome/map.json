@@ -3,7 +3,7 @@
   "name": "Spragholt_PlayerHome",
   "layout": "LAYOUT_SPRAGHOLT_PLAYER_HOME",
   "music": "MUS_RG_PALLET",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_SPRAGHOLT",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

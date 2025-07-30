@@ -415,7 +415,7 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
 
     // ball
     if (ball > POKEBALL_COUNT)
-        ball = BALL_POKE;
+        ball = BALL_WEAK;
     SetMonData(&mon, MON_DATA_POKEBALL, &ball);
 
     // held item
@@ -484,6 +484,7 @@ u32 ScriptGiveMon(u16 species, u8 level, u16 item)
 
 #define PARSE_FLAG(n, default_) (flags & (1 << (n))) ? VarGet(ScriptReadHalfword(ctx)) : (default_)
 
+
 /* Give or create a mon to either player or opponent
  */
 void ScrCmd_createmon(struct ScriptContext *ctx)
@@ -495,7 +496,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
 
     u32 flags         = ScriptReadWord(ctx);
     u16 item          = PARSE_FLAG(0, ITEM_NONE);
-    u8 ball           = PARSE_FLAG(1, ITEM_POKE_BALL);
+    u8 ball           = ItemIdToBallId(PARSE_FLAG(1, ITEM_WEAK_POKEBALL));
     u8 nature         = PARSE_FLAG(2, NUM_NATURES);
     u8 abilityNum     = PARSE_FLAG(3, NUM_ABILITY_PERSONALITY);
     u8 gender         = PARSE_FLAG(4, MON_GENDERLESS); // TODO: Find a better way to assign a random gender.

@@ -131,7 +131,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToHomeCave(void)
 {
-    SetWarpDestination(MAP_GROUP(MAP_SPRAGHOLT_PLAYER_HOME), MAP_NUM(MAP_SPRAGHOLT_PLAYER_HOME), WARP_ID_NONE, -1, -1);
+    SetWarpDestination(MAP_GROUP(MAP_SPRAGHOLT_PLAYER_HOME), MAP_NUM(MAP_SPRAGHOLT_PLAYER_HOME), WARP_ID_NONE, 3, 5);
     WarpIntoMap();
 }
 

@@ -15,10 +15,11 @@ script Spragholt_ShamanCave_GetPlaceholderPokemon {
     playmoncry(SPECIES_ONIX, CRY_MODE_NORMAL)
     msgbox("Take ONIX?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
-        givemon(SPECIES_ONIX, 5)
+        givemon(SPECIES_ONIX, 5, ITEM_NONE, ITEM_WEAK_POKEBALL)
         if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
             setvar(VAR_GAME_INTRO_STAGE, 3)
             playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_SYS_POKEMON_GET)
         }
     }
     hidemonpic

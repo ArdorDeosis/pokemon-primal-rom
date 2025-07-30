@@ -4,6 +4,7 @@ script Spragholt_PlayerHome_EventScript_FatherBeforePokemon {
     lock
     faceplayer
     msgbox(format("Are you ready, {PLAYER}? The shaman wants to see you before you start your journey.\p...\pI'm...\p...\pI'm really proud of you."))
+    setflag(FLAG_SYS_POKEDEX_GET)
     release
     end
 }
