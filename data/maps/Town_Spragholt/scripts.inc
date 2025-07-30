@@ -201,20 +201,20 @@ Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_8:
 	waitmovement
 # 112 "data/maps/Town_Spragholt/scripts.pory"
 	msgbox Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Text_2
-# 114 "data/maps/Town_Spragholt/scripts.pory"
+# 118 "data/maps/Town_Spragholt/scripts.pory"
 	switch VAR_TEMP_1
-# 115 "data/maps/Town_Spragholt/scripts.pory"
+# 119 "data/maps/Town_Spragholt/scripts.pory"
 	case 1, Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_14
-# 129 "data/maps/Town_Spragholt/scripts.pory"
+# 133 "data/maps/Town_Spragholt/scripts.pory"
 	case 2, Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_15
 Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_12:
-# 144 "data/maps/Town_Spragholt/scripts.pory"
+# 148 "data/maps/Town_Spragholt/scripts.pory"
 	waitmovement
-# 145 "data/maps/Town_Spragholt/scripts.pory"
+# 149 "data/maps/Town_Spragholt/scripts.pory"
 	setvar VAR_GAME_INTRO_STAGE, 1
-# 146 "data/maps/Town_Spragholt/scripts.pory"
+# 150 "data/maps/Town_Spragholt/scripts.pory"
 	warp MAP_SPRAGHOLT_SHAMAN_CAVE, 0
-# 147 "data/maps/Town_Spragholt/scripts.pory"
+# 151 "data/maps/Town_Spragholt/scripts.pory"
 	releaseall
 	end
 
@@ -237,16 +237,16 @@ Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_11:
 	goto Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_8
 
 Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_14:
-# 116 "data/maps/Town_Spragholt/scripts.pory"
+# 120 "data/maps/Town_Spragholt/scripts.pory"
 	applymovement LOCALID_SPRAGHOLT_TOWN_SHAMAN, Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_4
-# 123 "data/maps/Town_Spragholt/scripts.pory"
+# 127 "data/maps/Town_Spragholt/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_5
 	goto Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_12
 
 Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_15:
-# 130 "data/maps/Town_Spragholt/scripts.pory"
+# 134 "data/maps/Town_Spragholt/scripts.pory"
 	applymovement LOCALID_SPRAGHOLT_TOWN_SHAMAN, Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_6
-# 137 "data/maps/Town_Spragholt/scripts.pory"
+# 141 "data/maps/Town_Spragholt/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_7
 	goto Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_12
 
@@ -321,167 +321,167 @@ Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_3:
 	walk_left
 	step_end
 
-# 116 "data/maps/Town_Spragholt/scripts.pory"
-Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_4:
-# 117 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 117 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 117 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 117 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 117 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 117 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 118 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 119 "data/maps/Town_Spragholt/scripts.pory"
-	walk_left
-# 119 "data/maps/Town_Spragholt/scripts.pory"
-	walk_left
-# 119 "data/maps/Town_Spragholt/scripts.pory"
-	walk_left
 # 120 "data/maps/Town_Spragholt/scripts.pory"
-	walk_up
+Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_4:
 # 121 "data/maps/Town_Spragholt/scripts.pory"
-	set_invisible
-	step_end
-
+	walk_right
+# 121 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 121 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 121 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 121 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 121 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 122 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
 # 123 "data/maps/Town_Spragholt/scripts.pory"
-Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_5:
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 124 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 125 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 126 "data/maps/Town_Spragholt/scripts.pory"
 	walk_left
-# 126 "data/maps/Town_Spragholt/scripts.pory"
+# 123 "data/maps/Town_Spragholt/scripts.pory"
 	walk_left
-# 126 "data/maps/Town_Spragholt/scripts.pory"
+# 123 "data/maps/Town_Spragholt/scripts.pory"
 	walk_left
-# 127 "data/maps/Town_Spragholt/scripts.pory"
+# 124 "data/maps/Town_Spragholt/scripts.pory"
 	walk_up
-	step_end
-
-# 130 "data/maps/Town_Spragholt/scripts.pory"
-Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_6:
-# 131 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 131 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 131 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 131 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 131 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 131 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 132 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 133 "data/maps/Town_Spragholt/scripts.pory"
-	walk_left
-# 133 "data/maps/Town_Spragholt/scripts.pory"
-	walk_left
-# 133 "data/maps/Town_Spragholt/scripts.pory"
-	walk_left
-# 134 "data/maps/Town_Spragholt/scripts.pory"
-	walk_up
-# 135 "data/maps/Town_Spragholt/scripts.pory"
+# 125 "data/maps/Town_Spragholt/scripts.pory"
 	set_invisible
 	step_end
 
+# 127 "data/maps/Town_Spragholt/scripts.pory"
+Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_5:
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 128 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 129 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 130 "data/maps/Town_Spragholt/scripts.pory"
+	walk_left
+# 130 "data/maps/Town_Spragholt/scripts.pory"
+	walk_left
+# 130 "data/maps/Town_Spragholt/scripts.pory"
+	walk_left
+# 131 "data/maps/Town_Spragholt/scripts.pory"
+	walk_up
+	step_end
+
+# 134 "data/maps/Town_Spragholt/scripts.pory"
+Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_6:
+# 135 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 135 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 135 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 135 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 135 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 135 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 136 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
 # 137 "data/maps/Town_Spragholt/scripts.pory"
-Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_7:
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 138 "data/maps/Town_Spragholt/scripts.pory"
-	walk_right
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 139 "data/maps/Town_Spragholt/scripts.pory"
-	walk_down
-# 140 "data/maps/Town_Spragholt/scripts.pory"
 	walk_left
-# 140 "data/maps/Town_Spragholt/scripts.pory"
+# 137 "data/maps/Town_Spragholt/scripts.pory"
 	walk_left
-# 140 "data/maps/Town_Spragholt/scripts.pory"
+# 137 "data/maps/Town_Spragholt/scripts.pory"
 	walk_left
+# 138 "data/maps/Town_Spragholt/scripts.pory"
+	walk_up
+# 139 "data/maps/Town_Spragholt/scripts.pory"
+	set_invisible
+	step_end
+
 # 141 "data/maps/Town_Spragholt/scripts.pory"
+Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Movement_7:
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 142 "data/maps/Town_Spragholt/scripts.pory"
+	walk_right
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 143 "data/maps/Town_Spragholt/scripts.pory"
+	walk_down
+# 144 "data/maps/Town_Spragholt/scripts.pory"
+	walk_left
+# 144 "data/maps/Town_Spragholt/scripts.pory"
+	walk_left
+# 144 "data/maps/Town_Spragholt/scripts.pory"
+	walk_left
+# 145 "data/maps/Town_Spragholt/scripts.pory"
 	walk_up
 	step_end
 
@@ -534,8 +534,12 @@ Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Text_1:
 	.string "For fuck's sake!$"
 
 Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_Text_2:
-# 112 "data/maps/Town_Spragholt/scripts.pory"
-	.string "Hasn't your father told you to come see\n"
-	.string "me?\p"
-	.string "It's rude to keep an old lady waiting.\p"
-	.string "Come...$"
+# 113 "data/maps/Town_Spragholt/scripts.pory"
+	.string "Where do you think you're waddling off\n"
+	.string "to?\p"
+	.string "You try sneakin' off like that again,\n"
+	.string "and I swear I'll tie a rope 'round your\l"
+	.string "ankle.\p"
+	.string "Get in here and act like you've got a\n"
+	.string "brain cell or two.\p"
+	.string "You've got business to finish.$"

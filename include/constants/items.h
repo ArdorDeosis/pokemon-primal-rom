@@ -1012,6 +1012,8 @@
 #define ITEM_SPIRIT_WARD_BALL 1009
 #define ITEM_HEATPROOF_BALL 1010
 
+// Key Items
+#define ITEM_ISOLDES_POKEBALL 1011
 
 
 
@@ -1019,7 +1021,7 @@
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 1011
+#define ITEMS_COUNT 1012
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

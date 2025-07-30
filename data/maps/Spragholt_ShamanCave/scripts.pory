@@ -1,15 +1,45 @@
+// VAR_TEMP_1   x coordinate of selected pokemon to be replaced by following pokemon
+// VAR_TEMP_2   y coordinate of selected pokemon to be replaced by following pokemon
+// FLAG_TEMP_2  whether the following pokemon should be hidden or not
+
+// VAR_GAME_INTRO_STAGE
+const TRIED_TO_LEAVE_TOWN = 1
+const TALKED_TO_SHAMAN = 2
+const CHOSE_POKEMON = 3
+const GOT_SENT_TO_BRAKSTRAND = 4
+const GOT_SENT_TO_COLLECT_APRICORN = 5
+const HANDED_OVER_APRICORN = 6
+const PICKED_UP_POKEBALL = 7
+const DELIVERED_POKEBALL = 8
+
+
 mapscripts Spragholt_ShamanCave_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: HideFollowingPokemon
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_GAME_INTRO_STAGE, 1: Spragholt_ShamanCave_GettingDraggedIn
+		VAR_GAME_INTRO_STAGE, TRIED_TO_LEAVE_TOWN: GettingDraggedIn
 	]
 }
 
-script HideFollowingPokemon {
+script(local) HideFollowingPokemon {
     setflag(FLAG_TEMP_2)
 }
 
-script Spragholt_ShamanCave_GetPlaceholderPokemon {
+
+script Spragholt_ShamanCave_Shaman {
+    lockall
+    if (var(VAR_GAME_INTRO_STAGE) <= TALKED_TO_SHAMAN) {
+        msgbox(format(
+            "Still here?\pWhat, need me to hold your hand?\nThey're behind me!\p"
+            "Big ones, small ones... all with teeth and attitude.\p"
+            "Pick one, before they start pickin' each other."
+        ), MSGBOX_NPC)
+        waitmessage
+    } 
+    // TODO: other stages
+    releaseall
+}
+
+script Spragholt_ShamanCave_PlaceholderPokemon {
     lockall
     showmonpic(SPECIES_ONIX, 10, 3)
     playmoncry(SPECIES_ONIX, CRY_MODE_NORMAL)
@@ -17,7 +47,7 @@ script Spragholt_ShamanCave_GetPlaceholderPokemon {
     if (var(VAR_RESULT) == YES) {
         givemon(SPECIES_ONIX, 5, ITEM_NONE, ITEM_WEAK_POKEBALL)
         if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
-            setvar(VAR_GAME_INTRO_STAGE, 3)
+            setvar(VAR_GAME_INTRO_STAGE, CHOSE_POKEMON)
             playfanfare(MUS_OBTAIN_ITEM)
             setflag(FLAG_SYS_POKEMON_GET)
         }
@@ -37,7 +67,49 @@ script Spragholt_ShamanCave_GetPlaceholderPokemon {
     end
 }
 
-script Spragholt_ShamanCave_GettingDraggedIn {
+script(local) ChosePokemonSpeech {
+    msgbox(format(
+        "There you are.\pTook you long enough - my joints are older than this cave, ya know.\p"
+        "Your father's not thrilled. Didn't say much, but he didn't need to.\p"
+        "He's not angry at you. Not really.\pJust doesn't know what to do with all that worry.\p"
+        "Don't hold it against him.\pWatching your child walk toward danger... no easy thing.\p"
+        "But here you are anyway. Stubborn as dried clay.\p"
+        "Behind me are three Pokémon. They'll test you, trip you, maybe bite you.\p"
+        "Pick one.\pAnd if you drop it on your foot, don't come limping back to me.\p"
+        "Go on, before I change my mind and make you take the loud one."
+    ))
+    setvar(VAR_GAME_INTRO_STAGE, TALKED_TO_SHAMAN)
+    waitmessage
+}
+
+script Spragholt_ShamanCave_Trigger_LowerFloorBottleneck {
+    if (var(VAR_GAME_INTRO_STAGE) < TALKED_TO_SHAMAN){
+        call(GettingCalledOver)
+    } elif (var(VAR_GAME_INTRO_STAGE) == TALKED_TO_SHAMAN){
+        call(GettingCalledBack)
+    }
+}
+
+script Spragholt_ShamanCave_Trigger_PokemonCaveEntrance {
+    if (var(VAR_GAME_INTRO_STAGE) == CHOSE_POKEMON){
+        lockall
+        applymovement(LOCALID_SHAMAN, moves(walk_slow_right, face_up))
+        waitmovement
+        msgbox(format(
+            "So you picked Onix, huh?\pWell, someone's gotta love the grumpy ones.\p"
+            "That Poké Ball it came from wasn't free, y'know. I had Korken, the Poké Ball Crafter over in Brakstrand, make me a new one.\p"
+            "Go fetch it, would ya?\nAnd don't dawdle - if I fall asleep waitin', I might not wake up!"
+        ))
+
+        waitmessage
+        setvar(VAR_GAME_INTRO_STAGE, GOT_SENT_TO_BRAKSTRAND)
+        applymovement(LOCALID_SHAMAN, moves(walk_slow_left, face_right))
+        waitmovement
+        releaseall
+    }
+}
+
+script(local) GettingDraggedIn {
     lockall
     applymovement(OBJ_EVENT_ID_PLAYER, moves(
         walk_left,
@@ -49,14 +121,18 @@ script Spragholt_ShamanCave_GettingDraggedIn {
         step_end
     ))
     waitmovement
-    call(Spragholt_ShamanCave_ChosePokemonSpeech)
+    call(ChosePokemonSpeech)
+    releaseall
 }
 
-script Spragholt_ShamanCave_GettingCalledOver {
+script(local) GettingCalledOver {
     lockall
     applymovement(LOCALID_SHAMAN, moves(emote_exclamation_mark))
     waitmovement
-    msgbox(format("Ah, {PLAYER}.\pYou're late.\pCome here, will ya?"))
+    msgbox(format(
+        "Ah, there you are.\pAbout time. I was close to sending a Geodude to drag you in by the hair.\p"
+        "Come on, move those legs before they fossilize."
+    ))
     waitmessage
     applymovement(OBJ_EVENT_ID_PLAYER, moves(
         walk_left * 4,
@@ -64,38 +140,18 @@ script Spragholt_ShamanCave_GettingCalledOver {
         step_end
     ))
     waitmovement
-    call(Spragholt_ShamanCave_ChosePokemonSpeech)
-}
-
-script Spragholt_ShamanCave_ChosePokemonSpeech {
-    msgbox(format("bla bla bla\pChose your Pokémon!"))
-    setvar(VAR_GAME_INTRO_STAGE, 2)
-    waitmessage
+    call(ChosePokemonSpeech)
     releaseall
-    end
 }
 
-script Spragholt_ShamanCave_Trigger_LowerFloorBottleneck {
-    if (var(VAR_GAME_INTRO_STAGE) < 2){
-        call(Spragholt_ShamanCave_GettingCalledOver)
-        end
-    }
-    if (var(VAR_GAME_INTRO_STAGE) == 2){
-        lockall
-        msgbox(format("Where are you going? You haven't chosen a Pokémon yet!"))
-        waitmessage
-        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left, step_end))
-        waitmovement
-        releaseall
-        end
-    }
-}
-
-script Spragholt_ShamanCave_Shaman {
-    if (var(VAR_GAME_INTRO_STAGE) <= 2){
-        lockall
-        msgbox(format("Go on then, chose a Pokémon. They are in the room behind me."), MSGBOX_NPC)
-        releaseall
-        end
-    }
+script(local) GettingCalledBack {
+    lockall
+    msgbox(format(
+        "Where do you think you're waddling off to?\pThe Pokémon are right behind me, genius.\p"
+        "Go pick one before I assign you the loudest one on purpose."
+    ))
+    waitmessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left, step_end))
+    waitmovement
+    releaseall
 }

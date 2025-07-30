@@ -14142,8 +14142,10 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
 
-    // === Pokémon Primnal Items ===
+    // === Pokémon Primnal ===
     
+    // Apricorns
+
     [ITEM_APRICORN] =
     {
         .name = _("Ripe Apricorn"),
@@ -14253,5 +14255,22 @@ const struct Item gItemsInfo[] =
         .secondaryId = BALL_MASTER,
         .iconPic = gItemIcon_MasterBall,
         .iconPalette = gItemIconPalette_MasterBall,
+    },
+
+    // Key Items
+    [ITEM_ISOLDES_POKEBALL] = 
+    {
+        .name = _("Isolde's Poké Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A sturdy Poké Ball\n"
+            "crafted for Isolde.\n" 
+            "Do not use it!"),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SturdyPokeBall,
+        .iconPalette = gItemIconPalette_SturdyPokeBall,
     },
 };

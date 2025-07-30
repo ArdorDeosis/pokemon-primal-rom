@@ -109,7 +109,11 @@ script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
             applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_up * 6, walk_left * 6))
     }
     waitmovement
-    msgbox(format("Hasn't your father told you to come see me?\pIt's rude to keep an old lady waiting.\pCome..."))
+    msgbox(format(
+        "Where do you think you're waddling off to?\pYou try sneakin' off like that again, and I swear I'll tie a rope 'round your ankle.\p"
+        "Get in here and act like you've got a brain cell or two.\pYou've got business to finish."
+    ))
+
     
     switch (var(VAR_TEMP_1)) {
         case 1:
