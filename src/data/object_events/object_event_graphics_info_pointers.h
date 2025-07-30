@@ -249,6 +249,11 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 
+// === Pokémon Primal ===
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WeakPokeBall;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SturdyPokeBall;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ReinforcedPokeBall;
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -492,6 +497,12 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
     [OBJ_EVENT_GFX_LIGHT_SPRITE] =             &gObjectEventGraphicsInfo_BallLight,
+
+    // === Pokémon Primal ===
+    [OBJ_EVENT_GFX_WEAK_POKEBALL] =            &gObjectEventGraphicsInfo_WeakPokeBall,
+    [OBJ_EVENT_GFX_STURDY_POKEBALL] =          &gObjectEventGraphicsInfo_SturdyPokeBall,
+    [OBJ_EVENT_GFX_REINFORCED_POKEBALL] =      &gObjectEventGraphicsInfo_ReinforcedPokeBall,
+
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

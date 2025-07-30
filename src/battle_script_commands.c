@@ -15746,6 +15746,7 @@ static void Cmd_handleballthrow(void)
         {
             switch (ballId)
             {
+            case BALL_REINFORCED:
             case BALL_ULTRA:
                 ballMultiplier = 200;
                 break;
@@ -15753,6 +15754,7 @@ static void Cmd_handleballthrow(void)
                 if (B_SPORT_BALL_MODIFIER <= GEN_7)
                     ballMultiplier = 150;
                 break;
+            case BALL_STURDY:
             case BALL_GREAT:
                 ballMultiplier = 150;
                 break;

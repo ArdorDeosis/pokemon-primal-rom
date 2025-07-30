@@ -5453,7 +5453,7 @@
       "id": "LAYOUT_BRAKSTRAND_POKE_BALL_CRAFTER_CAVE",
       "name": "Brakstrand_PokeBallCrafterCave_Layout",
       "width": 14,
-      "height": 13,
+      "height": 14,
       "border_width": 1,
       "border_height": 1,
       "primary_tileset": "gTileset_NorthCave",

@@ -83,3 +83,14 @@ const u32 gBallGfx_Cherish[] = INCBIN_U32("graphics/balls/cherish.4bpp.lz");
 const u16 gBallPal_Cherish[] = INCBIN_U16("graphics/balls/cherish.gbapal");
 
 const u32 gOpenPokeballGfx[] = INCBIN_U32("graphics/balls/open.4bpp.lz");
+
+// === Pokémon Primal ===
+
+const u32 gBallGfx_Weak[] = INCBIN_U32("graphics/balls/weak.4bpp.lz");
+const u16 gBallPal_Weak[] = INCBIN_U16("graphics/balls/weak.gbapal");
+
+const u32 gBallGfx_Sturdy[] = INCBIN_U32("graphics/balls/sturdy.4bpp.lz");
+const u16 gBallPal_Sturdy[] = INCBIN_U16("graphics/balls/sturdy.gbapal");
+
+const u32 gBallGfx_Reinforced[] = INCBIN_U32("graphics/balls/reinforced.4bpp.lz");
+const u16 gBallPal_Reinforced[] = INCBIN_U16("graphics/balls/reinforced.gbapal");

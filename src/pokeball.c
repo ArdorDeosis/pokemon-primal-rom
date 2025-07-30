@@ -76,6 +76,10 @@ static u16 GetBattlerPokeballItemId(u8 battler);
 #define GFX_TAG_PARK_BALL    55025
 #define GFX_TAG_BEAST_BALL   55026
 #define GFX_TAG_CHERISH_BALL 55027
+// === Pokémon Primal ===
+#define GFX_TAG_WEAK_BALL       55028
+#define GFX_TAG_STURDY_BALL     55029
+#define GFX_TAG_REINFORCED_BALL 55029
 
 const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
 {
@@ -107,6 +111,11 @@ const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
     [BALL_PARK]    = {gBallGfx_Park,    384, GFX_TAG_PARK_BALL},
     [BALL_BEAST]   = {gBallGfx_Beast,   384, GFX_TAG_BEAST_BALL},
     [BALL_CHERISH] = {gBallGfx_Cherish, 384, GFX_TAG_CHERISH_BALL},
+
+    // === Pokémon Primal ===
+    [BALL_WEAK]       = {gBallGfx_Weak,       384, GFX_TAG_WEAK_BALL},
+    [BALL_STURDY]     = {gBallGfx_Sturdy,     384, GFX_TAG_STURDY_BALL},
+    [BALL_REINFORCED] = {gBallGfx_Reinforced, 384, GFX_TAG_REINFORCED_BALL},
 };
 
 const struct SpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
@@ -139,6 +148,11 @@ const struct SpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
     [BALL_PARK]    = {gBallPal_Park,    GFX_TAG_PARK_BALL},
     [BALL_BEAST]   = {gBallPal_Beast,   GFX_TAG_BEAST_BALL},
     [BALL_CHERISH] = {gBallPal_Cherish, GFX_TAG_CHERISH_BALL},
+    
+    // === Pokémon Primal ===
+    [BALL_WEAK]       = {gBallPal_Weak,       GFX_TAG_WEAK_BALL},
+    [BALL_STURDY]     = {gBallPal_Sturdy,     GFX_TAG_STURDY_BALL},
+    [BALL_REINFORCED] = {gBallPal_Reinforced, GFX_TAG_REINFORCED_BALL},
 };
 
 static const struct OamData sBallOamData =
@@ -530,6 +544,40 @@ const struct SpriteTemplate gBallSpriteTemplates[POKEBALL_COUNT] =
     {
         .tileTag = GFX_TAG_CHERISH_BALL,
         .paletteTag = GFX_TAG_CHERISH_BALL,
+        .oam = &sBallOamData,
+        .anims = sBallAnimSequences,
+        .images = NULL,
+        .affineAnims = sAffineAnim_BallRotate,
+        .callback = SpriteCB_BallThrow,
+    },
+    // === Pokémon Primal ===
+    
+    [BALL_WEAK] =
+    {
+        .tileTag = GFX_TAG_WEAK_BALL,
+        .paletteTag = GFX_TAG_WEAK_BALL,
+        .oam = &sBallOamData,
+        .anims = sBallAnimSequences,
+        .images = NULL,
+        .affineAnims = sAffineAnim_BallRotate,
+        .callback = SpriteCB_BallThrow,
+    },
+    
+    [BALL_STURDY] =
+    {
+        .tileTag = GFX_TAG_STURDY_BALL,
+        .paletteTag = GFX_TAG_STURDY_BALL,
+        .oam = &sBallOamData,
+        .anims = sBallAnimSequences,
+        .images = NULL,
+        .affineAnims = sAffineAnim_BallRotate,
+        .callback = SpriteCB_BallThrow,
+    },
+    
+    [BALL_REINFORCED] =
+    {
+        .tileTag = GFX_TAG_REINFORCED_BALL,
+        .paletteTag = GFX_TAG_REINFORCED_BALL,
         .oam = &sBallOamData,
         .anims = sBallAnimSequences,
         .images = NULL,

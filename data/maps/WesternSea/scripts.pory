@@ -1,1 +1,9 @@
 mapscripts WesternSea_MapScripts {}
+
+
+script WesternSea_EventScript_ApricornTree1 {
+    lockall
+    giveitem(ITEM_APRICORN)
+    releaseall
+}
+

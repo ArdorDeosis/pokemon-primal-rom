@@ -65,6 +65,14 @@ extern const u32 gBallGfx_Cherish[];
 extern const u16 gBallPal_Cherish[];
 extern const u32 gOpenPokeballGfx[];
 
+// === Pokémon Primal ===
+extern const u32 gBallGfx_Weak[];
+extern const u16 gBallPal_Weak[];
+extern const u32 gBallGfx_Sturdy[];
+extern const u16 gBallPal_Sturdy[];
+extern const u32 gBallGfx_Reinforced[];
+extern const u16 gBallPal_Reinforced[];
+
 // Pokémon gfx
 extern const u16 gMonIconPalettes[][16];
 

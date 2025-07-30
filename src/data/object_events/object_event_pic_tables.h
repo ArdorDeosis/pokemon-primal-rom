@@ -1119,6 +1119,39 @@ static const struct SpriteFrameImage sPicTable_PokeBall[] = {
 
 extern const struct SpriteFrameImage gFieldEffectObjectPicTable_BallLight[];
 
+// === Pokémon Primal ===
+
+
+static const struct SpriteFrameImage sPicTable_PokeBallWeak[] = {
+    overworld_frame(gObjectEventPic_PokeBallWeak, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PokeBallWeak, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PokeBallWeak, 2, 4, 2),
+    overworld_frame(gObjectEventPic_PokeBallWeak, 2, 4, 3),
+    overworld_frame(gObjectEventPic_PokeBallWeak, 2, 4, 4),
+    overworld_frame(gObjectEventPic_PokeBallWeak, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_PokeBallSturdy[] = {
+    overworld_frame(gObjectEventPic_PokeBallSturdy, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PokeBallSturdy, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PokeBallSturdy, 2, 4, 2),
+    overworld_frame(gObjectEventPic_PokeBallSturdy, 2, 4, 3),
+    overworld_frame(gObjectEventPic_PokeBallSturdy, 2, 4, 4),
+    overworld_frame(gObjectEventPic_PokeBallSturdy, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_PokeBallReinforced[] = {
+    overworld_frame(gObjectEventPic_PokeBallReinforced, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PokeBallReinforced, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PokeBallReinforced, 2, 4, 2),
+    overworld_frame(gObjectEventPic_PokeBallReinforced, 2, 4, 3),
+    overworld_frame(gObjectEventPic_PokeBallReinforced, 2, 4, 4),
+    overworld_frame(gObjectEventPic_PokeBallReinforced, 2, 4, 0),
+};
+
+
+
+
 #if OW_FOLLOWERS_POKEBALLS
 #define POKEBALL_PIC_FRAMES(name)                              \
     overworld_frame(gObjectEventPic_##name##Ball, 2, 4, 0),    \
@@ -1211,6 +1244,28 @@ static const struct SpriteFrameImage sPicTable_Ball_STRANGE[] = {
     POKEBALL_PIC_FRAMES(Strange),
 };
 #endif //ITEM_STRANGE_BALL
+
+
+/*
+#define PRIMAL_POKEBALL_PIC_FRAMES(type)                           \
+    overworld_frame(gObjectEventPic_PokeBall##type##, 2, 4, 0),    \
+    overworld_frame(gObjectEventPic_PokeBall##type##, 2, 4, 1),    \
+    overworld_frame(gObjectEventPic_PokeBall##type##, 2, 4, 2),    \
+    overworld_frame(gObjectEventPic_PokeBall##type##, 2, 4, 3),    \
+    overworld_frame(gObjectEventPic_PokeBall##type##, 2, 4, 4),    \
+    overworld_frame(gObjectEventPic_PokeBall##type##, 2, 4, 0)
+
+static const struct SpriteFrameImage sPicTable_Ball_WEAK[] = {
+    PRIMAL_POKEBALL_PIC_FRAMES(Weak),
+};
+static const struct SpriteFrameImage sPicTable_Ball_STURDY[] = {
+    PRIMAL_POKEBALL_PIC_FRAMES(Sturdy),
+};
+static const struct SpriteFrameImage sPicTable_Ball_REINFORCED[] = {
+    PRIMAL_POKEBALL_PIC_FRAMES(Reinforced),
+};
+*/
+
 #endif //OW_FOLLOWERS_POKEBALLS
 
 static const struct SpriteFrameImage sPicTable_DeoxysOld[] = {

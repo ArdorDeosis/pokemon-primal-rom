@@ -247,10 +247,15 @@
 #define OBJ_EVENT_GFX_OW_MON                     240
 #define OBJ_EVENT_GFX_LIGHT_SPRITE               241
 
+// === Pokémon Primal ===
+#define OBJ_EVENT_GFX_WEAK_POKEBALL              242
+#define OBJ_EVENT_GFX_STURDY_POKEBALL            243
+#define OBJ_EVENT_GFX_REINFORCED_POKEBALL        244
+
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        242
+#define NUM_OBJ_EVENT_GFX                        245
 
 
 // These are dynamic object gfx ids.
@@ -419,6 +424,10 @@
 #define OBJ_EVENT_PAL_TAG_LIGHT_2                 0x8002
 #define OBJ_EVENT_PAL_TAG_EMOTES                  0x8003
 #define OBJ_EVENT_PAL_TAG_NEON_LIGHT              0x8004
+// === Pokémon Primal ===
+#define OBJ_EVENT_PAL_TAG_BALL_WEAK               0x116B
+#define OBJ_EVENT_PAL_TAG_BALL_STURDY             0x116C
+#define OBJ_EVENT_PAL_TAG_BALL_REINFORCED         0x116D
 // Not a real OW palette tag; used for the white flash applied to followers
 #define OBJ_EVENT_PAL_TAG_WHITE                   (OBJ_EVENT_PAL_TAG_NONE - 1)
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF

@@ -156,6 +156,10 @@ static const struct CaptureStar sCaptureStars[] =
 #define TAG_PARTICLES_PARKBALL    65055
 #define TAG_PARTICLES_BEASTBALL   65056
 #define TAG_PARTICLES_CHERISHBALL 65057
+// === Pokémon Primal ===
+#define TAG_PARTICLES_WEAKBALL       65058
+#define TAG_PARTICLES_STURDYBALL     65059
+#define TAG_PARTICLES_REINFORCEDBALL 65060
 
 static const struct CompressedSpriteSheet sBallParticleSpriteSheets[] =
 {
@@ -187,6 +191,10 @@ static const struct CompressedSpriteSheet sBallParticleSpriteSheets[] =
     [BALL_PARK]     = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_PARKBALL},
     [BALL_BEAST]    = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_BEASTBALL},
     [BALL_CHERISH]  = {gBattleAnimSpriteGfx_Particles2,     0x100, TAG_PARTICLES_CHERISHBALL},
+    // === Pokémon Primal ===
+    [BALL_WEAK]       = {gBattleAnimSpriteGfx_Particles,    0x100, TAG_PARTICLES_WEAKBALL},
+    [BALL_STURDY]     = {gBattleAnimSpriteGfx_Particles,    0x100, TAG_PARTICLES_STURDYBALL},
+    [BALL_REINFORCED] = {gBattleAnimSpriteGfx_Particles,    0x100, TAG_PARTICLES_REINFORCEDBALL},
 };
 
 static const struct SpritePalette sBallParticlePalettes[] =
@@ -219,6 +227,10 @@ static const struct SpritePalette sBallParticlePalettes[] =
     [BALL_PARK]     = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_PARKBALL},
     [BALL_BEAST]    = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_BEASTBALL},
     [BALL_CHERISH]  = {gBattleAnimSpritePal_Particles2,     TAG_PARTICLES_CHERISHBALL},
+    // === Pokémon Primal ===
+    [BALL_WEAK]       = {gBattleAnimSpritePal_CircleImpact, TAG_PARTICLES_WEAKBALL},
+    [BALL_STURDY]     = {gBattleAnimSpritePal_CircleImpact, TAG_PARTICLES_STURDYBALL},
+    [BALL_REINFORCED] = {gBattleAnimSpritePal_CircleImpact, TAG_PARTICLES_REINFORCEDBALL},
 };
 
 static const union AnimCmd sAnim_RegularBall[] =
@@ -303,6 +315,10 @@ static const u8 sBallParticleAnimNums[POKEBALL_COUNT] =
     [BALL_PARK]    = 5,
     [BALL_BEAST]   = 5,
     [BALL_CHERISH] = 0,
+    // === Pokémon Primal ===
+    [BALL_WEAK]       = 0,
+    [BALL_STURDY]     = 2,
+    [BALL_REINFORCED] = 5,
 };
 
 static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
@@ -336,6 +352,10 @@ static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
     [BALL_PARK]    = UltraBallOpenParticleAnimation,
     [BALL_BEAST]   = UltraBallOpenParticleAnimation,
     [BALL_CHERISH] = MasterBallOpenParticleAnimation,
+    // === Pokémon Primal ===
+    [BALL_WEAK]       = PokeBallOpenParticleAnimation,
+    [BALL_STURDY]     = GreatBallOpenParticleAnimation,
+    [BALL_REINFORCED] = UltraBallOpenParticleAnimation,
 };
 
 static const struct SpriteTemplate sBallParticleSpriteTemplates[POKEBALL_COUNT] =
@@ -592,6 +612,35 @@ static const struct SpriteTemplate sBallParticleSpriteTemplates[POKEBALL_COUNT] 
         .affineAnims = gDummySpriteAffineAnimTable,
         .callback = SpriteCallbackDummy,
     },
+
+    // === Pokémon Primal ===
+    [BALL_WEAK] = {
+        .tileTag = TAG_PARTICLES_WEAKBALL,
+        .paletteTag = TAG_PARTICLES_WEAKBALL,
+        .oam = &gOamData_AffineOff_ObjNormal_8x8,
+        .anims = sAnims_BallParticles,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    [BALL_STURDY] = {
+        .tileTag = TAG_PARTICLES_STURDYBALL,
+        .paletteTag = TAG_PARTICLES_STURDYBALL,
+        .oam = &gOamData_AffineOff_ObjNormal_8x8,
+        .anims = sAnims_BallParticles,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    [BALL_REINFORCED] = {
+        .tileTag = TAG_PARTICLES_REINFORCEDBALL,
+        .paletteTag = TAG_PARTICLES_REINFORCEDBALL,
+        .oam = &gOamData_AffineOff_ObjNormal_8x8,
+        .anims = sAnims_BallParticles,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
 };
 
 const u16 gBallOpenFadeColors[] =
@@ -625,6 +674,10 @@ const u16 gBallOpenFadeColors[] =
     [BALL_PARK] = RGB(31, 31, 15),
     [BALL_BEAST] = RGB(31, 31, 15),
     [BALL_CHERISH] = RGB(25, 4, 3),
+    // === Pokémon Primal ===
+    [BALL_WEAK] = RGB(31, 22, 30),
+    [BALL_STURDY] = RGB(16, 23, 30),
+    [BALL_REINFORCED] = RGB(31, 31, 15),
 };
 
 const struct SpriteTemplate gPokeblockSpriteTemplate =

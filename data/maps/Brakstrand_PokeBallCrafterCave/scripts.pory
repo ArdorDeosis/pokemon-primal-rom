@@ -1,50 +1,116 @@
-mapscripts Brakstrand_PokeBallCrafterCave_MapScripts {}
+// FLAG_TEMP_2: whether the pokeball on the table is hidden or not
+
+mapscripts Brakstrand_PokeBallCrafterCave_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: SetupCave
+}
+
+
+script(local) SetupCave {
+    // move crafter in front of the table
+    if (var(VAR_GAME_INTRO_STAGE) <= 3 || 
+        (var(VAR_GAME_INTRO_STAGE) == 4 && checkitem(ITEM_APRICORN) == FALSE)) {
+        setobjectxyperm(LOCALID_BALL_CRAFTER, 3, 3)
+        setobjectmovementtype(LOCALID_BALL_CRAFTER, MOVEMENT_TYPE_FACE_UP)
+    }
+    // remove pokeball on the table
+    if (var(VAR_GAME_INTRO_STAGE) >= 6) {
+        setflag(FLAG_TEMP_2)
+        removeobject(LOCALID_POKEBALL)
+    }
+}
 
 
 script Brakstrand_PokeBallCrafterCave_TalkToCrafter {
     lockall
+    faceplayer
     switch (var(VAR_GAME_INTRO_STAGE)) {
         case 0:
         case 1:
         case 2:
         case 3:
-            call(Brakstrand_PokeBallCrafterCave_TalkToCrafter_StageLess4)
+            call(CrafterInteraction_StageLess4)
         case 4:
-            call(Brakstrand_PokeBallCrafterCave_TalkToCrafter_Stage4)
+            call(CrafterInteraction_Stage4)
+        case 5:
+            call(CrafterInteraction_Stage5)
         default:
-            call(Brakstrand_PokeBallCrafterCave_TalkToCrafter_Default)
+            call(CrafterInteraction_Default)
 
     }
     releaseall
 }
 
 
-script Brakstrand_PokeBallCrafterCave_TalkToCrafter_Default {
-    msgbox(format("Default talk."))
+script(local) CrafterInteraction_Default {
+    msgbox(format("Poké Ball crafting is not implemented yet!"))
     waitmessage
 }
 
-script Brakstrand_PokeBallCrafterCave_TalkToCrafter_StageLess4 {
-    msgbox(format("Get APRICORN."))
+
+script(local) CrafterInteraction_StageLess4 {
+    msgbox(format(
+        "What do you want?\p...\p...\p"
+        "Ah, I see. You need a Poké Ball. I can craft Poké Balls from Apricorns, but it is no easy task and it takes a while.\p"
+        "Lucky for you, I got one nearly finished. Get me an Apricorn and you can have it."
+        "You can find some Apricorn trees south of here, near the beach.")
+    )
     waitmessage
     setvar(VAR_GAME_INTRO_STAGE, 4)
 }
 
-script Brakstrand_PokeBallCrafterCave_TalkToCrafter_Stage4 {
+
+script(local) CrafterInteraction_Stage4 {
     if(checkitem(ITEM_APRICORN)) {
-        removeitem(ITEM_APRICORN)
-        msgbox(format("I took APRICORN."))
-        waitmessage
-        giveitem(ITEM_WEAK_POKEBALL)
-        giveitem(ITEM_STURDY_POKEBALL)
-        giveitem(ITEM_REINFORCED_POKEBALL)
-        setvar(VAR_GAME_INTRO_STAGE, 5)
+        call(HandOverApricorn)
     }
     else {
-        msgbox(format("No APRICORN yet? Look near beach."))
+        faceplayer
+        msgbox(format("Did you get me an Apricorn? There are some trees south of here, near the beach."))
         waitmessage
-        giveitem(ITEM_APRICORN)
-        giveitem(ITEM_FIRM_APRICORN)
-        giveitem(ITEM_DENSE_APRICORN)
+        setobjectmovementtype(LOCALID_BALL_CRAFTER, MOVEMENT_TYPE_FACE_UP)
     }
+}
+
+
+script(local) CrafterInteraction_Stage5 {
+    faceplayer
+    msgbox(format("You can have the Poké Ball on the table."))
+    waitmessage
+}
+
+
+script Brakstrand_PokeBallCrafterCave_Pokeball {
+    lockall
+    if (var(VAR_GAME_INTRO_STAGE) < 5){
+        applymovement(LOCALID_BALL_CRAFTER, moves(walk_in_place_fast_left, emote_question_mark))
+        waitmovement
+        msgbox(format("Did you get me an Apricorn?"))
+        waitmessage
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_in_place_down))
+        waitmovement
+        call(HandOverApricorn)
+    } else {
+        giveitem(ITEM_WEAK_POKEBALL)
+        removeobject(LOCALID_POKEBALL)
+        setvar(VAR_GAME_INTRO_STAGE, 6)
+    }
+    releaseall
+}
+
+
+script(local) HandOverApricorn {
+    if(checkitem(ITEM_APRICORN, 2)) {
+        msgbox(format("Ah. These are quite ripe."))
+    } else {
+        msgbox(format("Ah. This one is quite ripe."))
+    }
+    msgbox(format(
+        "I can make higher quality Poké Balls from Firm Apricots, but this will do.\p"
+        "I finished that Poké Ball on the table, you can take it.\p"
+        "If you need more Poké Balls crafted, bring me more Apricorns."
+    ))
+    waitmessage
+    removeitem(ITEM_APRICORN)
+    setflag(FLAG_TEMP_2)
+    setvar(VAR_GAME_INTRO_STAGE, 5)
 }

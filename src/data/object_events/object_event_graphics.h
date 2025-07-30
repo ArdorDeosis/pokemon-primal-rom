@@ -389,6 +389,11 @@ const u16 gObjectEventPal_Substitute[] = INCBIN_U16("graphics/object_events/pics
 const u16 gObjectEventPaletteEmotes[] = INCBIN_U16("graphics/misc/emotes.gbapal");
 const u16 gObjectEventPaletteNeonLight[] = INCBIN_U16("graphics/object_events/palettes/neon_light.gbapal");
 
+// === Pokémon Primal ===
+const u32 gObjectEventPic_PokeBallWeak[] = INCBIN_U32("graphics/object_events/pics/misc/ball_weak.4bpp");
+const u32 gObjectEventPic_PokeBallSturdy[] = INCBIN_U32("graphics/object_events/pics/misc/ball_sturdy.4bpp");
+const u32 gObjectEventPic_PokeBallReinforced[] = INCBIN_U32("graphics/object_events/pics/misc/ball_reinforced.4bpp");
+
 #if OW_FOLLOWERS_POKEBALLS
 const u32 gObjectEventPic_MasterBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_master.4bpp");
 const u32 gObjectEventPic_UltraBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_ultra.4bpp");
@@ -459,6 +464,10 @@ const u16 gObjectEventPal_BeastBall[] = INCBIN_U16("graphics/object_events/pics/
 const u16 gObjectEventPal_StrangeBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_strange.gbapal");
 #endif //ITEM_STRANGE_BALL
 #endif //OW_FOLLOWERS_POKEBALLS
+// === Pokémon Primal ===
+const u16 gObjectEventPal_PokeBallWeak[] = INCBIN_U16("graphics/object_events/pics/misc/ball_weak.gbapal");
+const u16 gObjectEventPal_PokeBallSturdy[] = INCBIN_U16("graphics/object_events/pics/misc/ball_sturdy.gbapal");
+const u16 gObjectEventPal_PokeBallReinforced[] = INCBIN_U16("graphics/object_events/pics/misc/ball_reinforced.gbapal");
 
 const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
 const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");

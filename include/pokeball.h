@@ -31,6 +31,11 @@ enum PokeBall
     BALL_PARK = 25,
     BALL_BEAST = 26,
     BALL_CHERISH = 27,
+    // === Pokémon Primal ===
+    BALL_WEAK = 28,
+    BALL_STURDY = 29,
+    BALL_REINFORCED = 30,
+
     POKEBALL_COUNT
 };
 
