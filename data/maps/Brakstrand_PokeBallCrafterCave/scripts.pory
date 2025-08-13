@@ -57,7 +57,7 @@ script(local) CrafterInteraction_Default {
 
 script(local) CrafterInteraction_Introduction {
     msgbox(format(
-        "Eh? What do you want?\p...\p...\p"
+        "Eh? What do you want?\p...\p"
         "Oh! Poké Balls. Yes. Yes! I craft those!\p"
         "From Apricorns, of course. But it takes time and... passion.\p...\p"
         "So you're the one Isolde sent. She said someone would come for her Poké Ball.\p"

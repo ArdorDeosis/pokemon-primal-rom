@@ -1,10 +1,184 @@
-mapscripts Spragholt_PlayerHome_MapScripts {}
+const TALK_TO_FATHER_COUNTER = VAR_TEMP_1
+const CHECKED_ENTRY_SCRIPT = VAR_TEMP_2
 
-script Spragholt_PlayerHome_EventScript_FatherBeforePokemon {
-    lock
+// VAR_GAME_INTRO_STAGE
+const TRIED_TO_LEAVE_TOWN = 1
+const TALKED_TO_SHAMAN = 2
+const CHOSE_POKEMON = 3
+const GOT_SENT_TO_BRAKSTRAND = 4
+const GOT_SENT_TO_COLLECT_APRICORN = 5
+const HANDED_OVER_APRICORN = 6
+const PICKED_UP_POKEBALL = 7
+const DELIVERED_POKEBALL = 8
+
+mapscripts Spragholt_PlayerHome_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		CHECKED_ENTRY_SCRIPT, 0: CheckEntranceTriggerAfterWarp
+	]
+}
+
+script Spragholt_PlayerHome_EventScript_Father {
+    if (var(VAR_GAME_INTRO_STAGE) <= GOT_SENT_TO_BRAKSTRAND) {
+        call(Father_Intro)
+    }
+    elif (!flag(FLAG_SYS_POKEDEX_GET)) {
+        call(Father_Reconciled)
+    }
+    else {
+        call(Father_Default)
+    }
+}
+
+
+script(local) Father_Default {
+    // TODO (not now)
+}
+
+script(local) Father_Intro {
+    lockall
+    switch(var(TALK_TO_FATHER_COUNTER)){
+        case 0:
+            call(Father_Intro1)
+        case 1:
+            call(Father_Intro2)
+        case 2:
+            call(Father_Intro3)
+        case 3:
+        default:
+            call(Father_Intro4)
+    }
+    addvar(TALK_TO_FATHER_COUNTER, 1)
+    releaseall
+}
+
+script(local) Father_Intro1 {
+    msgbox(format("Hmpf."))
+    waitmessage
+}
+
+script(local) Father_Intro2 {
     faceplayer
-    msgbox(format("Are you ready, {PLAYER}? The shaman wants to see you before you start your journey.\p...\pI'm...\p...\pI'm really proud of you."))
+    msgbox(format("WHAT?\p...\pYou're really going through with this?\pRunning off to challenge the High King?\pWith a wild beast at your side and some old bones' blessing?"))
+    waitmessage
+}
+
+script(local) Father_Intro3 {
+    faceplayer
+    msgbox(format(
+        "You're still a kid!\pYou don't know the world, {PLAYER}.\nOut there, it's not like Spragholt.\p"
+        "Out there, things bite and don't let go.\p"
+        "... But you won't listen, will you?"
+    ))
+    waitmessage
+    applymovement(ID_Father_PlayerHome, moves(face_up))
+    waitmovement
+}
+
+script(local) Father_Intro4 {
+    faceplayer
+    msgbox(format(
+        "Fine. Run off then. Play hero.\p"
+        "But don't expect me to sit here waiting for bad news.\pHmpf.\p"
+        "... Go see the shaman. Get your Pokémon. Do what you think you have to."
+    ))
+    waitmessage
+    applymovement(ID_Father_PlayerHome, moves(face_up))
+    waitmovement
+}
+
+script Spragholt_PlayerHome_Trigger_Entrance {
+    if (var(VAR_GAME_INTRO_STAGE) > GOT_SENT_TO_BRAKSTRAND && !flag(FLAG_SYS_POKEDEX_GET)) {
+        call(FatherGivePokedex)
+    }
+}
+script(local) CheckEntranceTriggerAfterWarp {
+    call(Spragholt_PlayerHome_Trigger_Entrance)
+    setvar(CHECKED_ENTRY_SCRIPT, 1)
+}
+
+script(local) FatherGivePokedex {
+    lockall
+	special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_up * 3, step_end))
+    waitmovement
+    applymovement(ID_Father_PlayerHome, moves(emote_question_mark, walk_in_place_fast_down))
+    waitmovement
+    msgbox(format("{PLAYER}!\pYou're still here?!"))
+    waitmessage
+    applymovement(ID_Father_PlayerHome, moves(
+        walk_down * 3,
+        walk_right,
+        walk_down * 2
+    ))
+    applymovement(LOCALID_CAMERA, moves(walk_down * 3, step_end))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement
+    special(RemoveCameraObject)
+    
+    call(Spragholt_Pokedex_Speech_Part1)
+
+    applymovement(ID_Father_PlayerHome, moves(
+        lock_facing_direction,
+        walk_up,
+        unlock_facing_direction
+    ))
+    waitmovement
+    
+    call(Spragholt_Pokedex_Speech_Part2)
+    
+    applymovement(ID_Father_PlayerHome, moves(
+        walk_up * 4,
+        walk_left,
+        face_up
+    ))
+    waitmovement
+    releaseall
+}
+
+script Spragholt_Pokedex_Speech_Part1 {
+    msgbox(format(
+        "I...\nI'm sorry.\p"
+        "I shouldn't have yelled. I was scared. Still am. Scared of losing you. Scared of watching you vanish like so many did before.\p"
+        "My days out there... before I hid here... They taught me how small we really are.\p"
+        "You've got heart. And a fire that doesn't flinch. But you've got a lot to learn, still.\p"
+        "Here. These Poké Balls should help you keep your teeth."
+    ))
+    waitmessage
+    giveitem(ITEM_WEAK_POKEBALL, 5)
+    msgbox(format(
+        "And this Journal... It's full of notes from when I still wandered. "
+        "But it's only half-finished. "
+        "You'll need to write the rest. Every Pokémon you meet, every one you catch. "
+        "Sketch it. Study it. It's your best chance to beat the High King."
+    ))
+    waitmessage
+    call(AddStuffToPokedex)
     setflag(FLAG_SYS_POKEDEX_GET)
-    release
-    end
+}
+script Spragholt_Pokedex_Speech_Part2 {
+    msgbox(format(
+        "I'm proud of you, {PLAYER}.\p"
+        "Now go! But come back to Spragholt now and then, will you?"
+    ))
+    waitmessage
+}
+
+script(local) Father_Reconciled {
+    lockall
+    faceplayer
+    msgbox(format(
+        "I'm proud of you, {PLAYER}.\p"
+        "Now go! But come back to Spragholt now and then, will you?"
+    ))
+    waitmessage
+    releaseall
+}
+
+script(local) AddStuffToPokedex{
+    setcaughtmon(SPECIES_PIDGEY)
+    setcaughtmon(SPECIES_SENTRET)
+    setseenmon(SPECIES_MANKEY)
+    setseenmon(SPECIES_WINGULL)
+    setseenmon(SPECIES_DWEBBLE)
+    // TODO: more
 }

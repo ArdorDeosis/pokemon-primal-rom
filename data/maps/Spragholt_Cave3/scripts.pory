@@ -1,1 +1,6 @@
 mapscripts Spragholt_Cave3_MapScripts {}
+
+script TestScript{
+    applymovement(1, moves(exit_pokeball, delay_16 * 8, enter_pokeball, delay_16 * 8))
+    applymovement(2, moves(exit_pokeball, delay_16 * 8, enter_pokeball, delay_16 * 8))
+}

@@ -214,7 +214,6 @@ CrafterInteraction_Introduction_Text_0:
 # 60 "data/maps/Brakstrand_PokeBallCrafterCave/scripts.pory"
 	.string "Eh? What do you want?\p"
 	.string "...\p"
-	.string "...\p"
 	.string "Oh! Poké Balls. Yes. Yes! I craft those!\p"
 	.string "From Apricorns, of course. But it takes\n"
 	.string "time and... passion.\p"

@@ -7575,7 +7575,7 @@ static u8 LoadFillColorPalette(u16 color, u16 paletteTag, struct Sprite *sprite)
 static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
 {
     #if OW_FOLLOWERS_POKEBALLS
-    enum PokeBall ball = BALL_STRANGE;
+    enum PokeBall ball = BALL_WEAK;
     if (objEvent->localId == OBJ_EVENT_ID_FOLLOWER)
     {
         struct Pokemon *mon = GetFirstLiveMon();
@@ -7583,7 +7583,7 @@ static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
             ball = GetMonData(mon, MON_DATA_POKEBALL);
     }
 
-    if (ball != BALL_POKE && ball < POKEBALL_COUNT)
+    if (ball != BALL_WEAK && ball < POKEBALL_COUNT)
     {
         const struct ObjectEventGraphicsInfo *info = &gPokeballGraphics[ball];
         if (info->tileTag == TAG_NONE)
@@ -7593,7 +7593,7 @@ static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
         }
     }
     #endif //OW_FOLLOWERS_POKEBALLS
-    ObjectEventSetGraphicsId(objEvent, OBJ_EVENT_GFX_POKE_BALL);
+    ObjectEventSetGraphicsId(objEvent, OBJ_EVENT_GFX_WEAK_POKEBALL);
 }
 
 #define sDuration   data[3]

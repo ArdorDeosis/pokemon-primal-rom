@@ -1,6 +1,10 @@
-// VAR_TEMP_1   x coordinate of selected pokemon to be replaced by following pokemon
-// VAR_TEMP_2   y coordinate of selected pokemon to be replaced by following pokemon
-// FLAG_TEMP_2  whether the following pokemon should be hidden or not
+const HIDE_FOLLOWING_POKEMON = FLAG_TEMP_1
+const HIDE_TURTWIG = FLAG_TEMP_2
+const HIDE_STARTER2 = FLAG_TEMP_3
+const HIDE_STARTER3 = FLAG_TEMP_4
+
+const X_COORD = VAR_TEMP_1
+const Y_COORD = VAR_TEMP_2
 
 // VAR_GAME_INTRO_STAGE
 const TRIED_TO_LEAVE_TOWN = 1
@@ -14,19 +18,26 @@ const DELIVERED_POKEBALL = 8
 
 
 mapscripts Spragholt_ShamanCave_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: HideFollowingPokemon
+    MAP_SCRIPT_ON_TRANSITION: Spragholt_ShamanCave_SetupCave
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_GAME_INTRO_STAGE, TRIED_TO_LEAVE_TOWN: GettingDraggedIn
 	]
 }
 
-script(local) HideFollowingPokemon {
-    setflag(FLAG_TEMP_2)
+script(local) Spragholt_ShamanCave_SetupCave {
+    // move shaman to entrance when being dragged in
+    if(var(VAR_GAME_INTRO_STAGE) == TRIED_TO_LEAVE_TOWN) {
+        setobjectxyperm(LOCALID_SHAMAN, 16, 16)
+        setobjectmovementtype(LOCALID_SHAMAN, MOVEMENT_TYPE_FACE_UP)
+    }
+    // hide what needs to be hidden
+    setflag(HIDE_FOLLOWING_POKEMON)
 }
 
 
 script Spragholt_ShamanCave_Shaman {
     lockall
+    faceplayer
     if (var(VAR_GAME_INTRO_STAGE) < CHOSE_POKEMON) {
         msgbox(format(
             "Still here?\pWhat, need me to hold your hand?\nThey're behind me!\p"
@@ -48,7 +59,7 @@ script Spragholt_ShamanCave_Shaman {
             "Sit still for a second."
         ))
         waitmessage
-        // TODO: heal script, keep as todo comment for now
+        // TODO: heal script
         if(checkitem(ITEM_ISOLDES_POKEBALL)){
             msgbox(format(
                 "Ahh, there it is. My Poké Ball, finally. Off you go now.\p"
@@ -65,37 +76,22 @@ script Spragholt_ShamanCave_Shaman {
     releaseall
 }
 
-script Spragholt_ShamanCave_PlaceholderPokemon {
+script Spragholt_ShamanCave_StarterTurtwig {
     lockall
-    showmonpic(SPECIES_ONIX, 10, 3)
-    playmoncry(SPECIES_ONIX, CRY_MODE_NORMAL)
-    msgbox("Take ONIX?", MSGBOX_YESNO)
+    showmonpic(SPECIES_TURTWIG, 10, 3)
+    playmoncry(SPECIES_TURTWIG, CRY_MODE_NORMAL)
+    msgbox(format("It tries to bite you, when you approach.\pTake Turtwig?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
-        givemon(SPECIES_ONIX, 5, ITEM_NONE, ITEM_WEAK_POKEBALL)
-        if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
-            setvar(VAR_GAME_INTRO_STAGE, CHOSE_POKEMON)
-            playfanfare(MUS_OBTAIN_ITEM)
-            setflag(FLAG_SYS_POKEMON_GET)
-        }
+        setfollowernpc(ID_CAVE_STARTER_TURTWIG, FNPC_NONE)
     }
     hidemonpic
-    msgbox("You received ONIX!")
-    setflag(FLAG_RECEIVED_STARTER)
-    waitmessage
-    applymovement(LOCALID_PLACEHOLDER_STARTER_BALL, moves(jump_in_place_left_right))
-    waitmovement
-    getobjectxy(LOCALID_PLACEHOLDER_STARTER_BALL, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
-    removeobject(LOCALID_PLACEHOLDER_STARTER_BALL)
-    addobject(ONIX_FOLLOW)
-    setobjectxy(ONIX_FOLLOW, VAR_TEMP_1, VAR_TEMP_2)
-    applymovement(ONIX_FOLLOW, moves(face_player))
+    
     releaseall
     end
 }
 
 script(local) ChosePokemonSpeech {
     msgbox(format(
-        "There you are.\pTook you long enough - my joints are older than this cave, ya know.\p"
         "Your father's not thrilled. Didn't say much, but he didn't need to.\p"
         "He's not angry at you. Not really.\pJust doesn't know what to do with all that worry.\p"
         "Don't hold it against him.\pWatching your child walk toward danger... no easy thing.\p"
@@ -119,17 +115,37 @@ script Spragholt_ShamanCave_Trigger_LowerFloorBottleneck {
 script Spragholt_ShamanCave_Trigger_PokemonCaveEntrance {
     if (var(VAR_GAME_INTRO_STAGE) == CHOSE_POKEMON){
         lockall
-        applymovement(LOCALID_SHAMAN, moves(walk_slow_right, face_up))
+        applymovement(LOCALID_SHAMAN, moves(face_right))
         waitmovement
+        msgbox(format("So you picked Turtwig, huh?\pWell, someone's gotta love the grumpy ones.\pLet me help you with this..."))
+        waitmessage
+
+        applymovement(LOCALID_SHAMAN, moves(walk_slow_up, walk_in_place_slow_right))
+        waitmovement
+        applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(enter_pokeball))
+        waitmovement
+        destroyfollowernpc
+        applymovement(LOCALID_SHAMAN, moves(walk_slow_down, walk_in_place_slow_right))
+        waitmovement
+        msgbox(format("There you go."))
+        waitmessage
+        
+        
+        givemon(SPECIES_TURTWIG, 5, ITEM_NONE, ITEM_WEAK_POKEBALL)
+        if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            setvar(VAR_GAME_INTRO_STAGE, CHOSE_POKEMON)
+        }
+        setflag(FLAG_SYS_POKEMON_GET)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("You received Turtwig!")
+        waitmessage
         msgbox(format(
-            "So you picked Onix, huh?\pWell, someone's gotta love the grumpy ones.\p"
-            "That Poké Ball it came from wasn't free, y'know. I had Korken, the Poké Ball Crafter over in Brakstrand, make me a new one.\p"
+            "Poké Balls aren't easy to come by, y'know. I had Korken, the Poké Ball Crafter over in Brakstrand, make me a new one.\p"
             "Go fetch it, would ya?\nAnd don't dawdle - if I fall asleep waitin', I might not wake up!"
         ))
-
         waitmessage
         setvar(VAR_GAME_INTRO_STAGE, GOT_SENT_TO_BRAKSTRAND)
-        applymovement(LOCALID_SHAMAN, moves(walk_slow_left, face_right))
+        applymovement(LOCALID_SHAMAN, moves(walk_slow_down, walk_in_place_slow_left))
         waitmovement
         releaseall
     }
@@ -137,13 +153,48 @@ script Spragholt_ShamanCave_Trigger_PokemonCaveEntrance {
 
 script(local) GettingDraggedIn {
     lockall
+    applymovement(LOCALID_SHAMAN, moves(
+        walk_slow_left,
+        walk_slow_up,
+        walk_slow_left * 2,
+        walk_slow_down
+        step_end
+    ))
     applymovement(OBJ_EVENT_ID_PLAYER, moves(
+        delay_16 * 2,
         walk_left,
-        walk_up * 2,
-        walk_left * 2,
+        walk_up,
+        delay_16, walk_up,
+        delay_16 * 2, walk_left * 2,
+        walk_in_place_down
+    ))
+    waitmovement
+    msgbox(format("Why do I...\pthe oldest person in town...\plive in the only cave...\pwith FUCKING STAIRS!"))
+    waitmessage
+    applymovement(LOCALID_SHAMAN, moves(
+        walk_slow_down,
+        walk_slow_left * 2,
+        walk_slow_up,
+        walk_slow_left,
+        walk_slow_up,
+        walk_slow_up,
+        walk_slow_left * 3,
+        face_down,
+        step_end
+    ))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(
+        face_left,
+        delay_16 * 5,
         walk_down * 2,
-        walk_left * 5,
-        walk_up * 2,
+        walk_in_place_left,
+        delay_16 * 2,
+        walk_left * 3,
+        face_up,
+        delay_16 * 2,
+        walk_left, walk_up,
+        walk_left, walk_up,
+        walk_left,
+        face_up,
         step_end
     ))
     waitmovement
@@ -156,13 +207,15 @@ script(local) GettingCalledOver {
     applymovement(LOCALID_SHAMAN, moves(emote_exclamation_mark))
     waitmovement
     msgbox(format(
-        "Ah, there you are.\pAbout time. I was close to sending a Geodude to drag you in by the hair.\p"
-        "Come on, move those legs before they fossilize."
+        "Ah, there you are.\pTook you long enough - my joints are older than this cave, ya know.\p"
+        "Come on, move those legs before I die."
     ))
     waitmessage
     applymovement(OBJ_EVENT_ID_PLAYER, moves(
         walk_left * 4,
         walk_up * 2,
+        walk_left,
+        face_up,
         step_end
     ))
     waitmovement

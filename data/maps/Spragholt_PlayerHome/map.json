@@ -15,16 +15,17 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "ID_Father_PlayerHome",
       "graphics_id": "OBJ_EVENT_GFX_NORMAN",
       "x": 7,
-      "y": 6,
+      "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Spragholt_PlayerHome_EventScript_FatherBeforePokemon",
+      "script": "Spragholt_PlayerHome_EventScript_Father",
       "flag": "0"
     }
   ],
@@ -37,6 +38,16 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Spragholt_PlayerHome_Trigger_Entrance"
+    }
+  ],
   "bg_events": []
 }

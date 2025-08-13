@@ -1,9 +1,32 @@
+// VAR_GAME_INTRO_STAGE
+const TRIED_TO_LEAVE_TOWN = 1
+const TALKED_TO_SHAMAN = 2
+const CHOSE_POKEMON = 3
+const GOT_SENT_TO_BRAKSTRAND = 4
+const GOT_SENT_TO_COLLECT_APRICORN = 5
+const HANDED_OVER_APRICORN = 6
+const PICKED_UP_POKEBALL = 7
+const DELIVERED_POKEBALL = 8
+
+const NORTH = 1
+const SOUTH = 2
+const WEST = 3
+const EAST = 4
+
+const JUMPED_FIRE = FLAG_TEMP_1
+const HIDE_SHAMAN = FLAG_TEMP_2
+const HIDE_FATHER = FLAG_TEMP_3
+
+const EXITING_TILE = VAR_TEMP_1
+const LAST_TILE_NEXT_TO_FIRE = VAR_TEMP_2
+
 mapscripts Town_Spragholt_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: Town_Spragholt_HideShaman
+    MAP_SCRIPT_ON_TRANSITION: Town_Spragholt_SetupMap
 }
 
-script Town_Spragholt_HideShaman {
-    setflag(FLAG_TEMP_2)
+script Town_Spragholt_SetupMap {
+    setflag(HIDE_SHAMAN)
+    setflag(HIDE_FATHER)
 }
 
 
@@ -12,26 +35,11 @@ script Town_Spragholt_HideShaman {
 script Town_Spragholt_EventScript_FireMan {
     lock
     faceplayer
-    if(var(VAR_TEMP_F) == 0) {
-        msgbox("0")
-    }
-    if(var(VAR_TEMP_F) == 1) {
-        msgbox("1")
-    }
-    if(var(VAR_TEMP_F) == 2) {
-        msgbox("2")
-    }
-    if(var(VAR_TEMP_F) == 3) {
-        msgbox("3")
-    }
-    if(var(VAR_TEMP_F) == 4) {
-        msgbox("4")
-    }
-    if(flag(FLAG_TEMP_1)){
+    if(flag(JUMPED_FIRE)){
         msgbox(format("BY THE GREAT PILOWSWINE! You jumped the fire!\pSo...\pFAST or CRISPY butt?"))
         multichoice(22, 8, MULTI_FAST_OR_CRISPY, TRUE)
         msgbox(format("Thought as much..."))
-        clearflag(FLAG_TEMP_1)
+        clearflag(JUMPED_FIRE)
     }
     else {
         msgbox(format("Cool cave dwellers can make fire. But REALLY cool cave dwellers...\pthey dare to jump over it!\pYou'll need a FAST butt, or you get a CRISPY butt.\pDare you?"))
@@ -41,72 +49,73 @@ script Town_Spragholt_EventScript_FireMan {
 }
 
 script Town_Spragholt_Trigger_AwayFromFire {
-    setvar(VAR_TEMP_F, 0)
+    setvar(LAST_TILE_NEXT_TO_FIRE, 0)
 } 
 
 script Town_Spragholt_Trigger_StandAtFireNorth {
-    if(var(VAR_TEMP_F) == 3) {
-        setflag(FLAG_TEMP_1)
+    if(var(LAST_TILE_NEXT_TO_FIRE) == SOUTH) {
+        setflag(JUMPED_FIRE)
     }
-    setvar(VAR_TEMP_F, 1)
+    setvar(LAST_TILE_NEXT_TO_FIRE, NORTH)
 }
 
 script Town_Spragholt_Trigger_StandAtFireEast {
-    if(var(VAR_TEMP_F) == 4) {
-        setflag(FLAG_TEMP_1)
+    if(var(LAST_TILE_NEXT_TO_FIRE) == WEST) {
+        setflag(JUMPED_FIRE)
     }
-    setvar(VAR_TEMP_F, 2)
+    setvar(LAST_TILE_NEXT_TO_FIRE, EAST)
 }
 
 script Town_Spragholt_Trigger_StandAtFireSouth {
-    if(var(VAR_TEMP_F) == 1) {
-        setflag(FLAG_TEMP_1)
+    if(var(LAST_TILE_NEXT_TO_FIRE) == NORTH) {
+        setflag(JUMPED_FIRE)
     }
-    setvar(VAR_TEMP_F, 3)
+    setvar(LAST_TILE_NEXT_TO_FIRE, SOUTH)
 }
 
 script Town_Spragholt_Trigger_StandAtFireWest {
-    if(var(VAR_TEMP_F) == 2) {
-        setflag(FLAG_TEMP_1)
+    if(var(LAST_TILE_NEXT_TO_FIRE) == EAST) {
+        setflag(JUMPED_FIRE)
     }
-    setvar(VAR_TEMP_F, 4)
+    setvar(LAST_TILE_NEXT_TO_FIRE, WEST)
 }
 
 // === GAME INTRO ===
 
-script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_North {
-    setvar(VAR_TEMP_1, 1)
-    call(Town_Spragholt_Trigger_TryToLeaveWithoutPokemon)
-}
-
-script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon_South {
-    setvar(VAR_TEMP_1, 2)
-    call(Town_Spragholt_Trigger_TryToLeaveWithoutPokemon)
-}
-
-script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
-    if(var(VAR_GAME_INTRO_STAGE) > 1) {
-        end
+script Town_Spragholt_Trigger_TryToLeave_North {
+    setvar(EXITING_TILE, NORTH)
+    if(var(VAR_GAME_INTRO_STAGE) <= CHOSE_POKEMON) {
+        call(TryToLeaveWithoutPokemon)
     }
+    elif (var(VAR_GAME_INTRO_STAGE) >= DELIVERED_POKEBALL && !flag(FLAG_SYS_POKEDEX_GET)) {
+        call(TryToLeaveWithoutPokedex)
+    }
+}
+
+script Town_Spragholt_Trigger_TryToLeave_South {
+    setvar(EXITING_TILE, SOUTH)
+    if(var(VAR_GAME_INTRO_STAGE) <= CHOSE_POKEMON) {
+        call(TryToLeaveWithoutPokemon)
+    }
+    elif (var(VAR_GAME_INTRO_STAGE) >= DELIVERED_POKEBALL && !flag(FLAG_SYS_POKEDEX_GET)) {
+        call(TryToLeaveWithoutPokedex)
+    }
+}
+
+script(local) TryToLeaveWithoutPokemon {
     lockall
     applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_question_mark))
     waitmovement
-    switch (var(VAR_TEMP_1)) {
-        case 1:
-        case 2:
-            msgbox(format("Wait!"), MSGBOX_NPC)
-        default:
-            msgbox(format("For fuck's sake!"))
-    }
-    clearflag(FLAG_TEMP_2)
+    msgbox(format("Wait!"), MSGBOX_NPC)
+    clearflag(HIDE_SHAMAN)
     addobject(LOCALID_SPRAGHOLT_TOWN_SHAMAN)
     waitmessage
     applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
-    switch (var(VAR_TEMP_1)) {
-        case 1:
-            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_up * 7, walk_left * 6))
-        case 2:
-            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_up * 6, walk_left * 6))
+    switch (var(EXITING_TILE)) {
+        case NORTH:
+            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_slow_up * 7, walk_slow_left * 6))
+        case SOUTH:
+            applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(walk_slow_up * 6, walk_slow_left * 6))
     }
     waitmovement
     msgbox(format(
@@ -115,33 +124,55 @@ script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
     ))
 
     
-    switch (var(VAR_TEMP_1)) {
-        case 1:
+    switch (var(EXITING_TILE)) {
+        case NORTH:
             applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(
-                walk_right * 6,
-                walk_down * 8,
-                walk_left * 3,
-                walk_up,
+                walk_slow_right * 6,
+                walk_slow_down * 8,
+                walk_slow_left * 3,
+                walk_slow_up,
                 set_invisible
             ))
             applymovement(OBJ_EVENT_ID_PLAYER, moves(
-                walk_right * 7,
-                walk_down * 8,
-                walk_left * 3,
+                walk_slow_right,
+                walk_slow_right,
+                delay_16 * 2, walk_right * 2,
+                delay_16, walk_right,
+                delay_8, walk_right, delay_8,
+                delay_16, walk_right, face_down,
+                delay_16 * 2, walk_down * 2,
+                face_right, delay_16, face_left,
+                walk_down * 3,
+                delay_16 * 3, walk_down * 2,
+                delay_16, walk_down,
+                face_right,
+                delay_16 * 2, walk_left * 2,
+                delay_16, walk_left,
                 walk_up
             ))
-        case 2:
+        case SOUTH:
             applymovement(LOCALID_SPRAGHOLT_TOWN_SHAMAN, moves(
-                walk_right * 6,
-                walk_down * 7,
-                walk_left * 3,
-                walk_up,
+                walk_slow_right * 6,
+                walk_slow_down * 7,
+                walk_slow_left * 3,
+                walk_slow_up,
                 set_invisible
             ))
             applymovement(OBJ_EVENT_ID_PLAYER, moves(
-                walk_right * 7,
-                walk_down * 7,
-                walk_left * 3,
+                walk_slow_right,
+                walk_slow_right,
+                delay_16 * 2, walk_right * 2,
+                delay_16, walk_right,
+                delay_8, walk_right, delay_8,
+                delay_16, walk_right, face_down,
+                delay_16 * 2, walk_down * 2,
+                face_right, delay_16, face_left,
+                walk_down * 3,
+                delay_16 * 2, walk_down,
+                delay_16, walk_down,
+                face_right,
+                delay_16 * 2, walk_left * 2,
+                delay_16, walk_left,
                 walk_up
             ))
     }
@@ -150,4 +181,41 @@ script Town_Spragholt_Trigger_TryToLeaveWithoutPokemon {
     warp(MAP_SPRAGHOLT_SHAMAN_CAVE, 0)
     releaseall
     end
+}
+
+
+script(local) TryToLeaveWithoutPokedex {
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_question_mark))
+    waitmovement
+    clearflag(HIDE_FATHER)
+    addobject(ID_Father_Spragholt)
+    if (var(EXITING_TILE) == NORTH) {
+        // setobjectxyperm(ID_Father_Spragholt, 8, 6) // apparently does not work...
+        applymovement(ID_Father_Spragholt, moves(walk_faster_up))
+    }
+    msgbox(format("{PLAYER}!"), MSGBOX_NPC)
+    waitmessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_in_place_right))
+    applymovement(ID_Father_Spragholt, moves(walk_fast_left * 7))
+    waitmovement
+
+    call(Spragholt_Pokedex_Speech_Part1)
+
+    applymovement(ID_Father_Spragholt, moves(
+        lock_facing_direction,
+        walk_right,
+        unlock_facing_direction
+    ))
+    waitmovement
+    
+    call(Spragholt_Pokedex_Speech_Part2)
+    
+    applymovement(ID_Father_Spragholt, moves(
+        walk_right * 5,
+        walk_down * 2,
+        walk_right * 2
+    ))
+    waitmovement
+    releaseall
 }
