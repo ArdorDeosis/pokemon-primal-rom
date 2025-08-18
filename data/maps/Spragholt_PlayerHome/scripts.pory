@@ -5,11 +5,12 @@ const CHECKED_ENTRY_SCRIPT = VAR_TEMP_2
 const TRIED_TO_LEAVE_TOWN = 1
 const TALKED_TO_SHAMAN = 2
 const CHOSE_POKEMON = 3
-const GOT_SENT_TO_BRAKSTRAND = 4
-const GOT_SENT_TO_COLLECT_APRICORN = 5
-const HANDED_OVER_APRICORN = 6
-const PICKED_UP_POKEBALL = 7
-const DELIVERED_POKEBALL = 8
+const RECEIVED_POKEMON = 4
+const GOT_SENT_TO_BRAKSTRAND = 5
+const GOT_SENT_TO_COLLECT_APRICORN = 6
+const HANDED_OVER_APRICORN = 7
+const PICKED_UP_POKEBALL = 8
+const DELIVERED_POKEBALL = 9
 
 mapscripts Spragholt_PlayerHome_MapScripts {
 	MAP_SCRIPT_ON_FRAME_TABLE [
@@ -87,7 +88,7 @@ script(local) Father_Intro4 {
 }
 
 script Spragholt_PlayerHome_Trigger_Entrance {
-    if (var(VAR_GAME_INTRO_STAGE) > GOT_SENT_TO_BRAKSTRAND && !flag(FLAG_SYS_POKEDEX_GET)) {
+    if (var(VAR_GAME_INTRO_STAGE) > PICKED_UP_POKEBALL && !flag(FLAG_SYS_POKEDEX_GET)) {
         call(FatherGivePokedex)
     }
 }

@@ -2,11 +2,12 @@
 const TRIED_TO_LEAVE_TOWN = 1
 const TALKED_TO_SHAMAN = 2
 const CHOSE_POKEMON = 3
-const GOT_SENT_TO_BRAKSTRAND = 4
-const GOT_SENT_TO_COLLECT_APRICORN = 5
-const HANDED_OVER_APRICORN = 6
-const PICKED_UP_POKEBALL = 7
-const DELIVERED_POKEBALL = 8
+const RECEIVED_POKEMON = 4
+const GOT_SENT_TO_BRAKSTRAND = 5
+const GOT_SENT_TO_COLLECT_APRICORN = 6
+const HANDED_OVER_APRICORN = 7
+const PICKED_UP_POKEBALL = 8
+const DELIVERED_POKEBALL = 9
 
 const NORTH = 1
 const SOUTH = 2
@@ -84,7 +85,7 @@ script Town_Spragholt_Trigger_StandAtFireWest {
 
 script Town_Spragholt_Trigger_TryToLeave_North {
     setvar(EXITING_TILE, NORTH)
-    if(var(VAR_GAME_INTRO_STAGE) <= CHOSE_POKEMON) {
+    if(var(VAR_GAME_INTRO_STAGE) < RECEIVED_POKEMON) {
         call(TryToLeaveWithoutPokemon)
     }
     elif (var(VAR_GAME_INTRO_STAGE) >= DELIVERED_POKEBALL && !flag(FLAG_SYS_POKEDEX_GET)) {
@@ -94,7 +95,7 @@ script Town_Spragholt_Trigger_TryToLeave_North {
 
 script Town_Spragholt_Trigger_TryToLeave_South {
     setvar(EXITING_TILE, SOUTH)
-    if(var(VAR_GAME_INTRO_STAGE) <= CHOSE_POKEMON) {
+    if(var(VAR_GAME_INTRO_STAGE) < RECEIVED_POKEMON) {
         call(TryToLeaveWithoutPokemon)
     }
     elif (var(VAR_GAME_INTRO_STAGE) >= DELIVERED_POKEBALL && !flag(FLAG_SYS_POKEDEX_GET)) {

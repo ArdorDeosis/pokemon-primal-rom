@@ -10,11 +10,12 @@ const Y_COORD = VAR_TEMP_2
 const TRIED_TO_LEAVE_TOWN = 1
 const TALKED_TO_SHAMAN = 2
 const CHOSE_POKEMON = 3
-const GOT_SENT_TO_BRAKSTRAND = 4
-const GOT_SENT_TO_COLLECT_APRICORN = 5
-const HANDED_OVER_APRICORN = 6
-const PICKED_UP_POKEBALL = 7
-const DELIVERED_POKEBALL = 8
+const RECEIVED_POKEMON = 4
+const GOT_SENT_TO_BRAKSTRAND = 5
+const GOT_SENT_TO_COLLECT_APRICORN = 6
+const HANDED_OVER_APRICORN = 7
+const PICKED_UP_POKEBALL = 8
+const DELIVERED_POKEBALL = 9
 
 
 mapscripts Spragholt_ShamanCave_MapScripts {
@@ -38,7 +39,7 @@ script(local) Spragholt_ShamanCave_SetupCave {
 script Spragholt_ShamanCave_Shaman {
     lockall
     faceplayer
-    if (var(VAR_GAME_INTRO_STAGE) < CHOSE_POKEMON) {
+    if (var(VAR_GAME_INTRO_STAGE) < RECEIVED_POKEMON) {
         msgbox(format(
             "Still here?\pWhat, need me to hold your hand?\nThey're behind me!\p"
             "Big ones, small ones... all with teeth and attitude.\p"
@@ -46,7 +47,7 @@ script Spragholt_ShamanCave_Shaman {
         ), MSGBOX_NPC)
         waitmessage
     } 
-    elif (var(VAR_GAME_INTRO_STAGE) >= CHOSE_POKEMON && var(VAR_GAME_INTRO_STAGE) < GOT_SENT_TO_COLLECT_APRICORN) {
+    elif (var(VAR_GAME_INTRO_STAGE) >= RECEIVED_POKEMON && var(VAR_GAME_INTRO_STAGE) < GOT_SENT_TO_COLLECT_APRICORN) {
         msgbox(format(
             "Do you have my Poké Ball yet? No? "
             "Then what are you flappin' your gums here for? Go on!"
@@ -83,6 +84,7 @@ script Spragholt_ShamanCave_StarterTurtwig {
     msgbox(format("It tries to bite you, when you approach.\pTake Turtwig?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
         setfollowernpc(ID_CAVE_STARTER_TURTWIG, FNPC_NONE)
+        setvar(VAR_GAME_INTRO_STAGE, CHOSE_POKEMON)
     }
     hidemonpic
     
@@ -133,7 +135,7 @@ script Spragholt_ShamanCave_Trigger_PokemonCaveEntrance {
         
         givemon(SPECIES_TURTWIG, 5, ITEM_NONE, ITEM_WEAK_POKEBALL)
         if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
-            setvar(VAR_GAME_INTRO_STAGE, CHOSE_POKEMON)
+            setvar(VAR_GAME_INTRO_STAGE, RECEIVED_POKEMON)
         }
         setflag(FLAG_SYS_POKEMON_GET)
         playfanfare(MUS_OBTAIN_ITEM)
