@@ -4361,3 +4361,8 @@ void GetCodeFeedback(void)
     else
         gSpecialVar_Result = 0;
 }
+
+void DebugBufferVar(void)
+{
+    ConvertUIntToDecimalStringN(gStringVar1, VarGet(VAR_APRICORN_WESTERN_SEA_1_STEP_COUNTER), STR_CONV_MODE_RIGHT_ALIGN, 5);
+}

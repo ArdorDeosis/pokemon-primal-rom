@@ -1,9 +1,90 @@
-mapscripts WesternSea_MapScripts {}
+// Apricorns
+const APRICORN_1 = FLAG_TEMP_1
+const APRICORN_2 = FLAG_TEMP_2
+const APRICORN_3 = FLAG_TEMP_3
 
+const APRICORN_1_X = 27
+const APRICORN_1_Y = 3
+const APRICORN_2_X = 29
+const APRICORN_2_Y = 4
+const APRICORN_3_X = 31
+const APRICORN_3_Y = 3
+
+const TREE_TILE_EMPTY = 0x0B0
+const TREE_TILE_APRICORN = 0x0B1
+
+mapscripts WesternSea_MapScripts {
+    MAP_SCRIPT_ON_LOAD: WesternSea_SetupMap
+}
+
+script WesternSea_SetupMap {
+    if(var(VAR_APRICORN_WESTERN_SEA_1_STEP_COUNTER) >= REGROW_STEP_COUNT_APRICORN) {
+        setflag(APRICORN_1)
+        setmetatile(APRICORN_1_X, APRICORN_1_Y, TREE_TILE_APRICORN, FALSE)
+    }
+    if(var(VAR_APRICORN_WESTERN_SEA_2_STEP_COUNTER) >= REGROW_STEP_COUNT_APRICORN) {
+        setflag(APRICORN_2)
+        setmetatile(APRICORN_2_X, APRICORN_2_Y, TREE_TILE_APRICORN, FALSE)
+    }
+    if(var(VAR_APRICORN_WESTERN_SEA_3_STEP_COUNTER) >= REGROW_STEP_COUNT_APRICORN) {
+        setflag(APRICORN_3)
+        setmetatile(APRICORN_3_X, APRICORN_3_Y, TREE_TILE_APRICORN, FALSE)
+    }
+}
 
 script WesternSea_EventScript_ApricornTree1 {
     lockall
-    giveitem(ITEM_APRICORN)
+    # special(DebugBufferVar)
+    # msgbox(format("step count: {STR_VAR_1}"))
+    # waitmessage 
+    if(flag(APRICORN_1)) {
+        giveitem(ITEM_APRICORN)
+        clearflag(APRICORN_1)
+        setvar(VAR_APRICORN_WESTERN_SEA_1_STEP_COUNTER, 0)
+        setmetatile(APRICORN_1_X, APRICORN_1_Y, TREE_TILE_EMPTY, FALSE)
+        special(DrawWholeMapView)
+    }
+    else {
+        call(NoApricornYet)
+    }
     releaseall
+    end
 }
 
+script WesternSea_EventScript_ApricornTree2 {
+    lockall
+    if(flag(APRICORN_2)) {
+        giveitem(ITEM_APRICORN)
+        clearflag(APRICORN_2)
+        setvar(VAR_APRICORN_WESTERN_SEA_2_STEP_COUNTER, 0)
+        setmetatile(APRICORN_2_X, APRICORN_2_Y, TREE_TILE_EMPTY, FALSE)
+        special(DrawWholeMapView)
+    }
+    else {
+        call(NoApricornYet)
+    }
+    releaseall
+    end
+}
+
+script WesternSea_EventScript_ApricornTree3 {
+    lockall
+    if(flag(APRICORN_3)) {
+        giveitem(ITEM_APRICORN)
+        clearflag(APRICORN_3)
+        setvar(VAR_APRICORN_WESTERN_SEA_3_STEP_COUNTER, 0)
+        setmetatile(APRICORN_3_X, APRICORN_3_Y, TREE_TILE_EMPTY, FALSE)
+        special(DrawWholeMapView)
+    }
+    else {
+        call(NoApricornYet)
+    }
+    releaseall
+    end
+}
+
+script(local) NoApricornYet {
+    msgbox(format("Nothing has grown here yet."))
+    waitmessage
+    return
+}

@@ -118,13 +118,14 @@ script Spragholt_ShamanCave_Trigger_PokemonCaveEntrance {
     if (var(VAR_GAME_INTRO_STAGE) == CHOSE_POKEMON){
         lockall
         applymovement(LOCALID_SHAMAN, moves(face_right))
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
         waitmovement
         msgbox(format("So you picked Turtwig, huh?\pWell, someone's gotta love the grumpy ones.\pLet me help you with this..."))
         waitmessage
 
         applymovement(LOCALID_SHAMAN, moves(walk_slow_up, walk_in_place_slow_right))
         waitmovement
-        applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(enter_pokeball))
+        applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(enter_pokeball, delay_16 * 3))
         waitmovement
         destroyfollowernpc
         applymovement(LOCALID_SHAMAN, moves(walk_slow_down, walk_in_place_slow_right))

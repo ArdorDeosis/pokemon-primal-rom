@@ -121,7 +121,7 @@ Father_Intro4:
 
 Spragholt_PlayerHome_Trigger_Entrance::
 # 91 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	compare VAR_GAME_INTRO_STAGE, 5
+	compare VAR_GAME_INTRO_STAGE, 8
 	goto_if_gt Spragholt_PlayerHome_Trigger_Entrance_2
 	return
 
@@ -203,41 +203,45 @@ Spragholt_Pokedex_Speech_Part1::
 	call AddStuffToPokedex
 # 157 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	setflag FLAG_SYS_POKEDEX_GET
+# 158 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	setflag FLAG_SYS_NATIONAL_DEX
+# 159 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	special EnableNationalPokedex
 	return
 
 
 Spragholt_Pokedex_Speech_Part2::
-# 160 "data/maps/Spragholt_PlayerHome/scripts.pory"
+# 162 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	msgbox Spragholt_Pokedex_Speech_Part2_Text_0
-# 164 "data/maps/Spragholt_PlayerHome/scripts.pory"
+# 166 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	waitmessage
 	return
 
 
 Father_Reconciled:
-# 168 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	lockall
-# 169 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	faceplayer
 # 170 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	lockall
+# 171 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	faceplayer
+# 172 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	msgbox Spragholt_Pokedex_Speech_Part2_Text_0
-# 174 "data/maps/Spragholt_PlayerHome/scripts.pory"
+# 176 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	waitmessage
-# 175 "data/maps/Spragholt_PlayerHome/scripts.pory"
+# 177 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	releaseall
 	return
 
 
 AddStuffToPokedex:
-# 179 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	setcaughtmon SPECIES_PIDGEY
-# 180 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	setcaughtmon SPECIES_SENTRET
 # 181 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	setseenmon SPECIES_MANKEY
+	setcaughtmon SPECIES_PIDGEY
 # 182 "data/maps/Spragholt_PlayerHome/scripts.pory"
-	setseenmon SPECIES_WINGULL
+	setcaughtmon SPECIES_SENTRET
 # 183 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	setseenmon SPECIES_MANKEY
+# 184 "data/maps/Spragholt_PlayerHome/scripts.pory"
+	setseenmon SPECIES_WINGULL
+# 185 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	setseenmon SPECIES_DWEBBLE
 	return
 
@@ -381,7 +385,7 @@ Spragholt_Pokedex_Speech_Part1_Text_1:
 	.string "best chance to beat the High King.$"
 
 Spragholt_Pokedex_Speech_Part2_Text_0:
-# 161 "data/maps/Spragholt_PlayerHome/scripts.pory"
+# 163 "data/maps/Spragholt_PlayerHome/scripts.pory"
 	.string "I'm proud of you, {PLAYER}.\p"
 	.string "Now go! But come back to Spragholt now\n"
 	.string "and then, will you?$"

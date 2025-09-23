@@ -21,7 +21,7 @@ script(local) SetupCave {
     // move crafter in front of the table
     if (var(VAR_GAME_INTRO_STAGE) <= GOT_SENT_TO_BRAKSTRAND || 
         (var(VAR_GAME_INTRO_STAGE) == GOT_SENT_TO_COLLECT_APRICORN && checkitem(ITEM_APRICORN) == FALSE)) {
-        setobjectxyperm(LOCALID_BALL_CRAFTER, 3, 3)
+        setobjectxyperm(LOCALID_BALL_CRAFTER, 4, 4)
         setobjectmovementtype(LOCALID_BALL_CRAFTER, MOVEMENT_TYPE_FACE_UP)
     }
     // remove pokeball on the table

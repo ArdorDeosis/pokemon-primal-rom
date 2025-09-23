@@ -1,1 +1,21 @@
 mapscripts Brakstrand_ShamanCave_MapScripts {}
+
+script PokeCenterShaman {
+    lockall
+    msgbox(format("Wanna heal?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        applymovement(1, moves(walk_slow_right, walk_slow_diag_southeast, face_right, delay_16 * 2, walk_in_place_slow_up))
+        waitmovement
+        fadescreen(FADE_TO_BLACK)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        special(HealPlayerParty)
+        setrespawn(HEAL_LOCATION_BRAKSTRAND)
+        fadescreen(FADE_FROM_BLACK)
+        applymovement(1, moves(walk_slow_diag_northwest, walk_slow_left, walk_in_place_slow_down))
+        waitmovement
+        msgbox(format("Here are your Pokémon!"))
+    }
+    msgbox(format("K THX BY"))
+    releaseall
+}

@@ -155,6 +155,8 @@ script Spragholt_Pokedex_Speech_Part1 {
     waitmessage
     call(AddStuffToPokedex)
     setflag(FLAG_SYS_POKEDEX_GET)
+	setflag(FLAG_SYS_NATIONAL_DEX)
+    special(EnableNationalPokedex)
 }
 script Spragholt_Pokedex_Speech_Part2 {
     msgbox(format(

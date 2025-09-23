@@ -143,6 +143,12 @@
       "map": "MAP_SPRAGHOLT_PLAYER_HOME",
       "x": 3,
       "y": 5
+    },
+    {
+      "id": "HEAL_LOCATION_BRAKSTRAND",
+      "map": "MAP_BRAKSTRAND_SHAMAN_CAVE",
+      "x": 6,
+      "y": 6
     }
   ]
 }

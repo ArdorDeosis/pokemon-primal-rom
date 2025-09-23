@@ -46,11 +46,27 @@
 #define VAR_OBJ_GFX_ID_E           0x401E
 #define VAR_OBJ_GFX_ID_F           0x401F
 
-// general purpose vars
+// === Pokémon Primal ===
+// used variables
+
 #define VAR_GAME_INTRO_STAGE                             0x4020
-#define VAR_REPEL_STEP_COUNT                             0x4021
+
+#define VAR_REPEL_STEP_COUNT                             0x4021 // used for repel
+
+#define VAR_                                             0x4023 //unused
+
+// semi-used variables
+// these are used in mechanics I am not sure I will use; e.g. ice tiles braking when walked on
+
 #define VAR_ICE_STEP_COUNT                               0x4022
-#define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
+
+// variables below are not checked whether they are needed or not
+// if new ones are needed, take from below after checking their purpose
+// we keep the definitions to not brake old code
+
+#define VAR_PLACEHOLDER                                  0x40FF // Unused Var, used for all re-used, to make stuff compile; moved up to be used in definitions
+
+#define VAR_STARTER_MON                                  VAR_PLACEHOLDER // 0=Treecko, 1=Torchic, 2=Mudkip
 #define VAR_MIRAGE_RND_H                                 0x4024
 #define VAR_MIRAGE_RND_L                                 0x4025
 #define VAR_SECRET_BASE_MAP                              0x4026
@@ -272,9 +288,15 @@
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
 #define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+// #define VAR_PLACEHOLDER                                  0x40FF // Unused Var, used for all re-used, to make stuff compile; moved up to be used in definitions
 
-#define VARS_END                                         0x40FF
+// === Pokémon Primal ===
+
+#define VAR_APRICORN_WESTERN_SEA_1_STEP_COUNTER          0x4100
+#define VAR_APRICORN_WESTERN_SEA_2_STEP_COUNTER          0x4101
+#define VAR_APRICORN_WESTERN_SEA_3_STEP_COUNTER          0x4102
+
+#define VARS_END                                         0x4102
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
 
 #define SPECIAL_VARS_START            0x8000

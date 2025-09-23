@@ -46,6 +46,7 @@
 #include "union_room_chat.h"
 #include "constants/map_groups.h"
 #include "constants/items.h"
+#include "constants/foraging.h"
 #include "difficulty.h"
 #include "follower_npc.h"
 
@@ -56,6 +57,7 @@ static void WarpToHomeCave(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
 static void ResetDexNav(void);
+static void ResetForagingData(void);
 
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 EWRAM_DATA bool8 gEnableContestDebugging = FALSE;
@@ -213,6 +215,8 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+
+    ResetForagingData();
 }
 
 static void ResetMiniGamesRecords(void)
@@ -236,4 +240,10 @@ static void ResetDexNav(void)
     memset(gSaveBlock3Ptr->dexNavSearchLevels, 0, sizeof(gSaveBlock3Ptr->dexNavSearchLevels));
 #endif
     gSaveBlock3Ptr->dexNavChain = 0;
+}
+
+static void ResetForagingData() {
+    VarSet(VAR_APRICORN_WESTERN_SEA_1_STEP_COUNTER, REGROW_STEP_COUNT_MAX);
+    VarSet(VAR_APRICORN_WESTERN_SEA_2_STEP_COUNTER, REGROW_STEP_COUNT_MAX);
+    VarSet(VAR_APRICORN_WESTERN_SEA_3_STEP_COUNTER, REGROW_STEP_COUNT_MAX);
 }

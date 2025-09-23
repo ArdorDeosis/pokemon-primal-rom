@@ -170,123 +170,125 @@ Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_1:
 # 120 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_0
 # 121 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
+	applymovement OBJ_EVENT_ID_PLAYER, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_1
 # 122 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_0
+	waitmovement
 # 123 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_0
+# 124 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	waitmessage
-# 125 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_1
 # 126 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
+	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_2
 # 127 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_2
+	waitmovement
 # 128 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_3
 # 129 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	destroyfollowernpc
-# 130 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_3
-# 131 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	waitmovement
+# 130 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	destroyfollowernpc
+# 131 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_4
 # 132 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_1
+	waitmovement
 # 133 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_1
+# 134 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	waitmessage
-# 136 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	givemon SPECIES_TURTWIG, 5, ITEM_NONE, ITEM_WEAK_POKEBALL
 # 137 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	givemon SPECIES_TURTWIG, 5, ITEM_NONE, ITEM_WEAK_POKEBALL
+# 138 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_4
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_3:
-# 140 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
 # 141 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
+	setflag FLAG_SYS_POKEMON_GET
 # 142 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_2
+	playfanfare MUS_OBTAIN_ITEM
 # 143 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmessage
+	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_2
 # 144 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_3
-# 148 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	waitmessage
+# 145 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	msgbox Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_3
 # 149 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	setvar VAR_GAME_INTRO_STAGE, 5
+	waitmessage
 # 150 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_4
+	setvar VAR_GAME_INTRO_STAGE, 5
 # 151 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
+	applymovement LOCALID_SHAMAN, Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_5
 # 152 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	waitmovement
+# 153 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	releaseall
 	return
 
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_4:
-# 138 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 139 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	setvar VAR_GAME_INTRO_STAGE, 4
 	goto Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_3
 
 
 GettingDraggedIn:
-# 157 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	lockall
 # 158 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	lockall
+# 159 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	applymovement LOCALID_SHAMAN, GettingDraggedIn_Movement_0
-# 165 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 166 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, GettingDraggedIn_Movement_1
-# 173 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
 # 174 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	msgbox GettingDraggedIn_Text_0
-# 175 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmessage
-# 176 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement LOCALID_SHAMAN, GettingDraggedIn_Movement_2
-# 187 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, GettingDraggedIn_Movement_3
-# 202 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	waitmovement
+# 175 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	msgbox GettingDraggedIn_Text_0
+# 176 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	waitmessage
+# 177 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	applymovement LOCALID_SHAMAN, GettingDraggedIn_Movement_2
+# 188 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, GettingDraggedIn_Movement_3
 # 203 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	call ChosePokemonSpeech
+	waitmovement
 # 204 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	call ChosePokemonSpeech
+# 205 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	releaseall
 	return
 
 
 GettingCalledOver:
-# 208 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	lockall
 # 209 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement LOCALID_SHAMAN, GettingCalledOver_Movement_0
+	lockall
 # 210 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
+	applymovement LOCALID_SHAMAN, GettingCalledOver_Movement_0
 # 211 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	msgbox GettingCalledOver_Text_0
-# 215 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmessage
-# 216 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, GettingCalledOver_Movement_1
-# 223 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	waitmovement
+# 212 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	msgbox GettingCalledOver_Text_0
+# 216 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	waitmessage
+# 217 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, GettingCalledOver_Movement_1
 # 224 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	call ChosePokemonSpeech
+	waitmovement
 # 225 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	call ChosePokemonSpeech
+# 226 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	releaseall
 	return
 
 
 GettingCalledBack:
-# 229 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	lockall
 # 230 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	lockall
+# 231 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	msgbox GettingCalledBack_Text_0
-# 234 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmessage
 # 235 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, GettingCalledBack_Movement_0
+	waitmessage
 # 236 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	waitmovement
+	applymovement OBJ_EVENT_ID_PLAYER, GettingCalledBack_Movement_0
 # 237 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	waitmovement
+# 238 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	releaseall
 	return
 
@@ -297,187 +299,199 @@ Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_0:
 	face_right
 	step_end
 
-# 125 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 121 "data/maps/Spragholt_ShamanCave/scripts.pory"
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_1:
-# 125 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_up
-# 125 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_in_place_slow_right
+# 121 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	face_left
 	step_end
 
-# 127 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 126 "data/maps/Spragholt_ShamanCave/scripts.pory"
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_2:
-# 127 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	enter_pokeball
-	step_end
-
-# 130 "data/maps/Spragholt_ShamanCave/scripts.pory"
-Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_3:
-# 130 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_down
-# 130 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 126 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_up
+# 126 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_in_place_slow_right
 	step_end
 
-# 150 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 128 "data/maps/Spragholt_ShamanCave/scripts.pory"
+Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_3:
+# 128 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	enter_pokeball
+# 128 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 128 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 128 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+	step_end
+
+# 131 "data/maps/Spragholt_ShamanCave/scripts.pory"
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_4:
-# 150 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 131 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_down
-# 150 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 131 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_in_place_slow_right
+	step_end
+
+# 151 "data/maps/Spragholt_ShamanCave/scripts.pory"
+Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Movement_5:
+# 151 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_down
+# 151 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_in_place_slow_left
 	step_end
 
-# 158 "data/maps/Spragholt_ShamanCave/scripts.pory"
-GettingDraggedIn_Movement_0:
 # 159 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_left
+GettingDraggedIn_Movement_0:
 # 160 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_up
-# 161 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_left
 # 161 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_up
+# 162 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_left
 # 162 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_down
+	walk_slow_left
 # 163 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_down
+# 164 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	step_end
 
-# 165 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 166 "data/maps/Spragholt_ShamanCave/scripts.pory"
 GettingDraggedIn_Movement_1:
-# 166 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 166 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 167 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	delay_16
 # 167 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
+	delay_16
 # 168 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_up
-# 169 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 169 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_up
-# 170 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 170 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 170 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
+# 169 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_up
 # 170 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 170 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_up
+# 171 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 171 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 171 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
 # 171 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_left
+# 172 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 176 "data/maps/Spragholt_ShamanCave/scripts.pory"
-GettingDraggedIn_Movement_2:
 # 177 "data/maps/Spragholt_ShamanCave/scripts.pory"
+GettingDraggedIn_Movement_2:
+# 178 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_down
-# 178 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_left
-# 178 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 179 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_left
 # 179 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_up
-# 180 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_left
-# 181 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 180 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_up
+# 181 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_left
 # 182 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_up
 # 183 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_left
-# 183 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_slow_left
-# 183 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_up
+# 184 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_slow_left
 # 184 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	face_down
+	walk_slow_left
+# 184 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_slow_left
 # 185 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	face_down
+# 186 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	step_end
 
-# 187 "data/maps/Spragholt_ShamanCave/scripts.pory"
-GettingDraggedIn_Movement_3:
 # 188 "data/maps/Spragholt_ShamanCave/scripts.pory"
+GettingDraggedIn_Movement_3:
+# 189 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	face_left
-# 189 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 189 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 189 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 189 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 189 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 190 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	delay_16
 # 190 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_down
+	delay_16
 # 190 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 190 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 190 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 191 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_down
 # 191 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_down
+# 192 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_in_place_left
-# 192 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 192 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 193 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	delay_16
 # 193 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
-# 193 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
-# 193 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
+# 194 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
 # 194 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	face_up
-# 195 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 195 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	delay_16
-# 196 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
+# 194 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_left
+# 195 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	face_up
 # 196 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_up
+	delay_16
+# 196 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	delay_16
 # 197 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
 # 197 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_up
 # 198 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
+# 198 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_up
 # 199 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	face_up
+	walk_left
 # 200 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	face_up
+# 201 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	step_end
 
-# 209 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 210 "data/maps/Spragholt_ShamanCave/scripts.pory"
 GettingCalledOver_Movement_0:
-# 209 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 210 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	emote_exclamation_mark
 	step_end
 
-# 216 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 217 "data/maps/Spragholt_ShamanCave/scripts.pory"
 GettingCalledOver_Movement_1:
-# 217 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
-# 217 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
-# 217 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
-# 217 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 218 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
 # 218 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_up
+	walk_left
 # 218 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_left
+# 218 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	walk_left
+# 219 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_up
 # 219 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	walk_left
+	walk_up
 # 220 "data/maps/Spragholt_ShamanCave/scripts.pory"
-	face_up
+	walk_left
 # 221 "data/maps/Spragholt_ShamanCave/scripts.pory"
+	face_up
+# 222 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	step_end
 
-# 235 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 236 "data/maps/Spragholt_ShamanCave/scripts.pory"
 GettingCalledBack_Movement_0:
-# 235 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 236 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	walk_left
-# 235 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 236 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	step_end
 
 Spragholt_ShamanCave_Shaman_Text_0:
@@ -539,22 +553,22 @@ ChosePokemonSpeech_Text_0:
 	.string "you take the loud one.$"
 
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_0:
-# 122 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 123 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "So you picked Turtwig, huh?\p"
 	.string "Well, someone's gotta love the grumpy\n"
 	.string "ones.\p"
 	.string "Let me help you with this...$"
 
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_1:
-# 132 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 133 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "There you go.$"
 
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_2:
-# 142 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 143 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "You received Turtwig!$"
 
 Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_3:
-# 145 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 146 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "Poké Balls aren't easy to come by,\n"
 	.string "y'know. I had Korken, the Poké Ball\l"
 	.string "Crafter over in Brakstrand, make me a\l"
@@ -564,21 +578,21 @@ Spragholt_ShamanCave_Trigger_PokemonCaveEntrance_Text_3:
 	.string "waitin', I might not wake up!$"
 
 GettingDraggedIn_Text_0:
-# 174 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 175 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "Why do I...\p"
 	.string "the oldest person in town...\p"
 	.string "live in the only cave...\p"
 	.string "with FUCKING STAIRS!$"
 
 GettingCalledOver_Text_0:
-# 212 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 213 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "Ah, there you are.\p"
 	.string "Took you long enough - my joints are\n"
 	.string "older than this cave, ya know.\p"
 	.string "Come on, move those legs before I die.$"
 
 GettingCalledBack_Text_0:
-# 231 "data/maps/Spragholt_ShamanCave/scripts.pory"
+# 232 "data/maps/Spragholt_ShamanCave/scripts.pory"
 	.string "Where do you think you're waddling off\n"
 	.string "to?\p"
 	.string "The Pokémon are right behind me, genius.\p"

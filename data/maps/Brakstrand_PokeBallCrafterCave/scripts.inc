@@ -19,7 +19,7 @@ SetupCave_1:
 
 SetupCave_2:
 # 24 "data/maps/Brakstrand_PokeBallCrafterCave/scripts.pory"
-	setobjectxyperm LOCALID_BALL_CRAFTER, 3, 3
+	setobjectxyperm LOCALID_BALL_CRAFTER, 4, 4
 # 25 "data/maps/Brakstrand_PokeBallCrafterCave/scripts.pory"
 	setobjectmovementtype LOCALID_BALL_CRAFTER, MOVEMENT_TYPE_FACE_UP
 	goto SetupCave_1

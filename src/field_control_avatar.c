@@ -73,6 +73,7 @@ static bool8 TryStartCoordEventScript(struct MapPosition *);
 static bool8 TryStartWarpEventScript(struct MapPosition *, u16);
 static bool8 TryStartMiscWalkingScripts(u16);
 static bool8 TryStartStepCountScript(u16);
+static void UpdateApricornStepCounters(void);
 static void UpdateFriendshipStepCounter(void);
 static void UpdateFollowerStepCounter(void);
 #if OW_POISON_DAMAGE < GEN_5
@@ -669,6 +670,8 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         return FALSE;
     }
 
+    UpdateApricornStepCounters();
+
     IncrementRematchStepCounter();
     UpdateFriendshipStepCounter();
     UpdateFarawayIslandStepCounter();
@@ -764,6 +767,23 @@ static void UpdateFriendshipStepCounter(void)
             AdjustFriendship(mon, FRIENDSHIP_EVENT_WALKING);
             mon++;
         }
+    }
+}
+
+static void UpdateApricornStepCounters(void)
+{
+    static const u16 sApricornStepCounters[] = {
+        VAR_APRICORN_WESTERN_SEA_1_STEP_COUNTER,
+        VAR_APRICORN_WESTERN_SEA_2_STEP_COUNTER,
+        VAR_APRICORN_WESTERN_SEA_3_STEP_COUNTER,
+    };
+
+    // Loop through each counter and increment it
+    u32 i;
+    for (i = 0; i < (sizeof(sApricornStepCounters) / sizeof(sApricornStepCounters[0])); i++)
+    {
+        u16 *ptr = GetVarPointer(sApricornStepCounters[i]);
+        (*ptr)++;
     }
 }
 
